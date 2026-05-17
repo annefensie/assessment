@@ -16,7 +16,7 @@ function doGet(e) {
     .evaluate()
     .setTitle('UMPI Assessment Design Tool')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.SAMEORIGIN);
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.DEFAULT);
 }
 
 function include(filename) {
