@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UMPI Assessment Design Tool</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
   <style>
@@ -44,6 +44,11 @@
         .withFailureHandler(reject);
       runner[fnName](...args);
     });
+  }
+
+  function safeParseJson(str) {
+    if (!str) return {};
+    try { return JSON.parse(str); } catch(e) { return {}; }
   }
 
   // ─── Top-level App ────────────────────────────────────────────────────────
@@ -143,15 +148,20 @@
               onCourseSelected={(ctx) => { setCourseCtx(ctx); setStep(1); }}
             />
           )}
-          {step === 1 && courseCtx && (
-            <StepOutcome
-              courseCtx={courseCtx}
-              glos={glos}
-              outcomeText={outcomeText}
-              onOutcomeChange={setOutcomeText}
-              onNext={(text, type) => { setOutcomeText(text); setSelectedOutcomeType(type); setStep(2); }}
-              onBack={() => setStep(0)}
-            />
+          {step === 1 && (
+            courseCtx
+              ? <StepOutcome
+                  courseCtx={courseCtx}
+                  glos={glos}
+                  outcomeText={outcomeText}
+                  onOutcomeChange={setOutcomeText}
+                  onNext={(text, type) => { setOutcomeText(text); setSelectedOutcomeType(type); setStep(2); }}
+                  onBack={() => setStep(0)}
+                />
+              : <div className="card p-6 space-y-3">
+                  <div className="alert-warn p-3 rounded text-sm">Course context failed to load. Go back and try again.</div>
+                  <button className="px-4 py-2 text-sm border border-gray-300 rounded" onClick={() => setStep(0)}>← Back</button>
+                </div>
           )}
           {step === 2 && (
             <StepRecommendation
@@ -214,6 +224,8 @@
     const [courses, setCourses] = useState([]);
     const [selectedCourseId, setSelectedCourseId] = useState('');
     const [loadingCourses, setLoadingCourses] = useState(false);
+    const [loadingNext, setLoadingNext] = useState(false);
+    const [nextError, setNextError] = useState('');
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
@@ -221,12 +233,26 @@
       setLoadingCourses(true);
       const fn = showAll ? gsr('getAllCourses') : gsr('getCoursesByProgram', selectedProgramId);
       fn.then(c => { setCourses(c || []); setLoadingCourses(false); })
-        .catch(() => setLoadingCourses(false));
+        .catch(e => { setLoadingCourses(false); });
     }, [selectedProgramId, showAll]);
 
     function handleNext() {
       if (!selectedCourseId) return;
-      gsr('getCourseContext', selectedCourseId).then(ctx => onCourseSelected(ctx));
+      setLoadingNext(true);
+      setNextError('');
+      gsr('getCourseContext', selectedCourseId)
+        .then(ctx => {
+          setLoadingNext(false);
+          if (!ctx) {
+            setNextError('Could not load course data. The database may not be set up yet — please run setupAll() in the Apps Script editor and try again.');
+            return;
+          }
+          onCourseSelected(ctx);
+        })
+        .catch(e => {
+          setLoadingNext(false);
+          setNextError('Error loading course: ' + (e.message || String(e)));
+        });
     }
 
     return (
@@ -260,10 +286,13 @@
           </div>
         )}
 
+        {nextError && <div className="alert-warn p-3 rounded text-sm">{nextError}</div>}
+
         <button
-          className="mt-2 px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40"
-          disabled={!selectedCourseId}
+          className="mt-2 px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40 flex items-center gap-2"
+          disabled={!selectedCourseId || loadingNext}
           onClick={handleNext}>
+          {loadingNext && <div className="spinner" style={{width:16,height:16,borderWidth:2}} />}
           Continue →
         </button>
       </div>
@@ -290,10 +319,9 @@
             <div className="font-semibold text-gray-800">{course?.code} — {course?.title}</div>
             <div className="text-gray-600 text-xs">{course?.description}</div>
             <div className="flex gap-2 mt-1 flex-wrap">
-              {JSON.parse(course?.modality_flags || '{}') &&
-                Object.entries(JSON.parse(course?.modality_flags || '{}')).filter(([,v]) => v).map(([k]) => (
-                  <span key={k} className="source-badge capitalize">{k}</span>
-                ))}
+              {Object.entries(safeParseJson(course && course.modality_flags)).filter(function(e){ return e[1]; }).map(function(e){ return (
+                  <span key={e[0]} className="source-badge capitalize">{e[0]}</span>
+                )})}
             </div>
           </div>
 
