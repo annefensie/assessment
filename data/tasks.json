@@ -1,0 +1,262 @@
+[
+  {
+    "Task Type": "Simulation",
+    "Description": "Scenario with updating information that requires a response. (Some PGMT simulations might actually be regular scenarios, not simulations.)",
+    "Behaviors": "Interact,Decide / Select,Think Critically (Prospective),Implement",
+    "Format / Modality": "Video,Written,Audio/Spoken,Observation,Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Dynamic inputs, decision traces, and debriefs require situated judgment and adaptation rather than a static generated response.",
+    "Recommended scoring evidence": "Decision log, response at each update, rationale for adaptation, outcome interpretation, debrief reflection.",
+    "Discipline Affinity": "Business, health professions, public policy, hospitality, cybersecurity, environmental science, agriculture, emergency management."
+  },
+  {
+    "Task Type": "Scenario",
+    "Description": "Contextual information is described, and the examinee is asked to respond either by analyzing & explaining parts of the scenario, making a decision, or designing a solution. Can use many formats (narrative, video, artifacts).",
+    "Behaviors": "Think Critically (Retrospective)",
+    "Format / Modality": "Written,Audio/Spoken,Video,Discipline-specific format",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Case-specific variables, localized details, and required rationale make generic answers weak; variations can be rotated across learners.",
+    "Recommended scoring evidence": "Issue identification, evidence use, reasoning chain, decision criteria, transfer to a changed condition.",
+    "Discipline Affinity": "All disciplines; especially professional programs, social sciences, humanities, health, business, education."
+  },
+  {
+    "Task Type": "Role Play",
+    "Description": "A mock interaction between the learner and other(s), usually used to demonstrate specific communication skills (such as responsiveness, confict management, giving feedback, etc.)",
+    "Behaviors": "React",
+    "Format / Modality": "Observation,Video",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Live or recorded interpersonal performance, follow-up prompts, and observation of behavior resist text-only outsourcing.",
+    "Recommended scoring evidence": "Communication checklist, interaction rubric, response to cues, professionalism, client/peer feedback, reflection.",
+    "Discipline Affinity": "Counseling, social work, psychology, communication, health, hospitality, management, education, legal studies."
+  },
+  {
+    "Task Type": "Real world demonstration",
+    "Description": "Demonstration in or observation from a real world context. Focus on active tasks or interactions (such as teaching, interpersonal interactions, using tools or equipment).",
+    "Behaviors": "Interact,React,Implement,Create,Know / Understand,Explain,Think Critically (Prospective),Decide / Select",
+    "Format / Modality": "Observation,Video,Artifacts",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Authentic performance evidence, supervisor/observer notes, and contextual constraints directly show what the learner can do.",
+    "Recommended scoring evidence": "Observation checklist, work sample, standards alignment, supervisor/peer feedback, safety/quality criteria, reflection.",
+    "Discipline Affinity": "Health, education, exercise science, agriculture, environmental science, labs, engineering, arts, trades."
+  },
+  {
+    "Task Type": "Real world project",
+    "Description": "Not directly observed/assessed. Learner must provide evidence, documentation, and/or other reflection.",
+    "Behaviors": "Think Critically (Prospective),Think Critically (Retrospective),Show Evidence,Create,Know / Understand,Explain,Decide / Select",
+    "Format / Modality": "Written,Artifacts,Audio/Spoken,Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Local context, stakeholder feedback, milestones, and implementation evidence make a single generic product insufficient.",
+    "Recommended scoring evidence": "Project plan, artifact/deliverable, stakeholder feedback, implementation evidence, process log, reflection.",
+    "Discipline Affinity": "Capstones; business, IT/cybersecurity, public health, policy, environmental science, agriculture, education, community-engaged courses."
+  },
+  {
+    "Task Type": "Design project",
+    "Description": "Similar to a real world project, but not intended for real / immediate application in the real world. May use a hypothetical or real context, but no real implementation or usage of findings is expected.",
+    "Behaviors": "Think Critically (Prospective),Create,Know / Understand,Explain,Decide / Select",
+    "Format / Modality": "Written,Artifacts,Audio/Spoken,Video,Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Design constraints, prototype iterations, critique response, and rationale reveal learner decisions across time.",
+    "Recommended scoring evidence": "Design rationale, prototype/artifact, iteration evidence, feasibility/testing evidence, critique response.",
+    "Discipline Affinity": "Engineering, arts/design, architecture, media, technology, business, education, environmental design."
+  },
+  {
+    "Task Type": "Oral exam / Viva",
+    "Description": "Structured live or recorded questioning that probes reasoning, assumptions, and transfer.",
+    "Behaviors": "Argue / Defend; Explain; Think Critically; Model / Represent; Self-Regulate / Revise",
+    "Format / Modality": "Audio/Spoken, Video, In-person observation, Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Follow-up questions verify authorship and reasoning.",
+    "Recommended scoring evidence": "Rubric for accuracy, reasoning, evidence use, and responsiveness.",
+    "Discipline Affinity": "All; especially math, humanities, professional programs"
+  },
+  {
+    "Task Type": "Performance task / Skills check",
+    "Description": "Learner performs a procedure or technique under observed or recorded conditions.",
+    "Behaviors": "Perform Procedure / Technique; Implement; Show Evidence",
+    "Format / Modality": "Observation, Video, In-person observation, Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Direct performance evidence cannot be fully outsourced to text generation.",
+    "Recommended scoring evidence": "Checklist/rubric, error analysis, safety/procedure criteria.",
+    "Discipline Affinity": "Health, labs, engineering, arts, trades"
+  },
+  {
+    "Task Type": "OSCE / Standardized client station",
+    "Description": "Timed stations with standardized patients/clients, scenarios, and scoring criteria.",
+    "Behaviors": "React; Interact; Ethical / Professional Judgment; Perform Procedure / Technique; Diagnose / Troubleshoot",
+    "Format / Modality": "In-person observation, Virtual observation, Video",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Simulated human interaction and station-specific facts require situated performance.",
+    "Recommended scoring evidence": "Station checklist, global rating, client feedback, rater notes.",
+    "Discipline Affinity": "Health professions, social work, counseling, education"
+  },
+  {
+    "Task Type": "Inquiry / Investigation",
+    "Description": "Learner formulates a question, designs a method, gathers evidence, and interprets findings.",
+    "Behaviors": "Investigate / Inquire; Think Critically; Show Evidence; Explain",
+    "Format / Modality": "Written, Artifacts, Video, Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Requires original evidence collection and decisions about method.",
+    "Recommended scoring evidence": "Research log, method rationale, evidence quality, interpretation.",
+    "Discipline Affinity": "Sciences, social sciences, humanities"
+  },
+  {
+    "Task Type": "Lab practicum",
+    "Description": "Learner plans, conducts, analyzes, and explains lab work or a practical investigation.",
+    "Behaviors": "Perform Procedure / Technique; Investigate / Inquire; Think Critically; Explain",
+    "Format / Modality": "In-person observation, Video, Artifacts, Discipline-specific format",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Combines process, equipment, and data evidence.",
+    "Recommended scoring evidence": "Lab notebook, observation checklist, data quality, explanation.",
+    "Discipline Affinity": "Natural sciences, health, engineering"
+  },
+  {
+    "Task Type": "Modeling task",
+    "Description": "Learner creates a mathematical, conceptual, computational, or visual representation and explains assumptions.",
+    "Behaviors": "Model / Represent; Think Critically; Create; Explain",
+    "Format / Modality": "Written, Artifacts, Discipline-specific format, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Assumption defense and scenario-specific constraints make generic answers weak.",
+    "Recommended scoring evidence": "Model accuracy, assumptions, limitations, sensitivity, explanation.",
+    "Discipline Affinity": "Math, statistics, economics, engineering, science"
+  },
+  {
+    "Task Type": "Case-based decision memo",
+    "Description": "Learner interprets a case, chooses among options, and justifies a recommendation.",
+    "Behaviors": "Decide / Select; Think Critically; Ethical / Professional Judgment; Explain",
+    "Format / Modality": "Written, Audio/Spoken, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Case variables can be randomized or local; rationale matters more than prose.",
+    "Recommended scoring evidence": "Decision criteria, use of evidence, tradeoff analysis, consequences.",
+    "Discipline Affinity": "Business, health, policy, education, social sciences"
+  },
+  {
+    "Task Type": "Structured debate / Moot court",
+    "Description": "Learner defends a position, addresses counterarguments, and uses evidence under questioning.",
+    "Behaviors": "Argue / Defend; Interact; Explain; Think Critically",
+    "Format / Modality": "Audio/Spoken, Video, In-person observation, Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Live rebuttal and assigned evidence constrain outsourcing.",
+    "Recommended scoring evidence": "Argument quality, evidence use, rebuttal, responsiveness.",
+    "Discipline Affinity": "Law, humanities, social sciences, policy, ethics"
+  },
+  {
+    "Task Type": "Peer review / Calibration",
+    "Description": "Learner applies criteria to exemplars or peer work and explains judgments.",
+    "Behaviors": "Critique / Calibrate; Self-Regulate / Revise; Interact; Explain",
+    "Format / Modality": "Written, Audio/Spoken, Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Requires comparison, judgment, and often interaction with peer artifacts.",
+    "Recommended scoring evidence": "Accuracy/calibration, criteria use, feedback quality.",
+    "Discipline Affinity": "Writing, design, professional programs, all project courses"
+  },
+  {
+    "Task Type": "Process-product portfolio assessment",
+    "Description": "Learner submits final work plus drafts, feedback, decisions, revisions, and reflective commentary.",
+    "Behaviors": "Self-Regulate / Revise; Show Evidence; Create; Explain",
+    "Format / Modality": "Artifacts, Written, Video, Discipline-specific format",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Process trail and iteration history make single-shot AI products insufficient.",
+    "Recommended scoring evidence": "Draft history, feedback use, reflection, final quality.",
+    "Discipline Affinity": "All; especially writing, design, education, capstones"
+  },
+  {
+    "Task Type": "Capstone / Client project",
+    "Description": "Extended authentic project for a client, community, workplace, or complex real-world problem.",
+    "Behaviors": "Create; Implement; Collaborate / Coordinate; Communicate for Audience; Think Critically",
+    "Format / Modality": "Artifacts, Written, Video, Presentation, Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Authentic constraints, stakeholder feedback, and milestones are hard to outsource completely.",
+    "Recommended scoring evidence": "Proposal, prototype, client feedback, final presentation, reflection.",
+    "Discipline Affinity": "Engineering, business, public health, design, IT, education"
+  },
+  {
+    "Task Type": "Design critique / Studio review",
+    "Description": "Learner presents design work for critique, explains choices, receives/uses feedback, and revises.",
+    "Behaviors": "Create; Critique / Calibrate; Self-Regulate / Revise; Communicate for Audience",
+    "Format / Modality": "Artifacts, Presentation, Video, In-person observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Visible design artifacts, critique dialogue, and revision history support authenticity.",
+    "Recommended scoring evidence": "Design criteria, rationale, critique response, iteration.",
+    "Discipline Affinity": "Design, architecture, arts, media, engineering"
+  },
+  {
+    "Task Type": "Data analysis practicum",
+    "Description": "Learner analyzes a provided or learner-generated data set and communicates interpretation and limitations.",
+    "Behaviors": "Think Critically; Model / Represent; Explain; Use Tools / AI Responsibly",
+    "Format / Modality": "Written, Artifacts, Discipline-specific format, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Unique/local data and code/output logs provide evidence beyond final narrative.",
+    "Recommended scoring evidence": "Analysis plan, reproducibility, visualization, interpretation, limitations.",
+    "Discipline Affinity": "Statistics, data science, social science, business, public health"
+  },
+  {
+    "Task Type": "Code walkthrough / Interview",
+    "Description": "Learner demonstrates code, explains design/debugging choices, and responds to questions.",
+    "Behaviors": "Troubleshoot / Diagnose; Implement; Explain; Use Tools / AI Responsibly",
+    "Format / Modality": "Video, Virtual observation, In-person observation, Artifacts",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Live explanation and debugging verifies understanding of submitted code.",
+    "Recommended scoring evidence": "Correctness, maintainability, tests, explanation, debugging.",
+    "Discipline Affinity": "Computer science, information systems, data science"
+  },
+  {
+    "Task Type": "Simulation game / Business game",
+    "Description": "Learner makes repeated decisions in a dynamic, rule-based environment and explains strategy/results.",
+    "Behaviors": "Decide / Select; React; Think Critically; Collaborate / Coordinate",
+    "Format / Modality": "Simulation, Written, Presentation, Discipline-specific format",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Dynamic information and decision traces produce process evidence.",
+    "Recommended scoring evidence": "Decision log, strategy rationale, outcomes analysis, reflection.",
+    "Discipline Affinity": "Business, management, economics, policy, health"
+  },
+  {
+    "Task Type": "Fieldwork / Practicum evidence",
+    "Description": "Learner documents and reflects on supervised work in authentic settings.",
+    "Behaviors": "Show Evidence; Implement; React; Ethical / Professional Judgment; Communicate for Audience",
+    "Format / Modality": "Artifacts, Observation, Written, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Authentic context and supervisor observations provide external evidence.",
+    "Recommended scoring evidence": "Work samples, supervisor checklist, reflection, standards alignment.",
+    "Discipline Affinity": "Education, health, social work, public service"
+  },
+  {
+    "Task Type": "Community-based project",
+    "Description": "Learner addresses a community or stakeholder need and documents outcomes and learning.",
+    "Behaviors": "Create; Implement; Communicate for Audience; Ethical / Professional Judgment",
+    "Format / Modality": "Artifacts, Written, Presentation, Field observation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Local context and stakeholder interaction constrain AI-generated generic products.",
+    "Recommended scoring evidence": "Needs assessment, deliverable, stakeholder feedback, reflection.",
+    "Discipline Affinity": "Public health, policy, education, social sciences, business"
+  },
+  {
+    "Task Type": "Primary-source/document-based assessment",
+    "Description": "Learner analyzes source sets using sourcing, contextualization, corroboration, and evidence-based interpretation.",
+    "Behaviors": "Investigate / Inquire; Argue / Defend; Think Critically; Explain",
+    "Format / Modality": "Written, Artifacts, Audio/Spoken",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Assigned/local source packets and evidence matrices limit generic response quality.",
+    "Recommended scoring evidence": "Source evaluation, corroboration, claim-evidence fit, contextualization.",
+    "Discipline Affinity": "History, humanities, media literacy, social sciences"
+  },
+  {
+    "Task Type": "Policy lab / Stakeholder briefing",
+    "Description": "Learner synthesizes evidence for a defined audience and presents actionable recommendations.",
+    "Behaviors": "Communicate for Audience; Decide / Select; Argue / Defend; Ethical / Professional Judgment",
+    "Format / Modality": "Written, Presentation, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Audience, constraints, and questions require situated judgment.",
+    "Recommended scoring evidence": "Brief quality, evidence synthesis, feasibility, audience fit.",
+    "Discipline Affinity": "Policy, public health, business, education, social sciences"
+  },
+  {
+    "Task Type": "AI audit / Source verification task",
+    "Description": "Learner evaluates the accuracy, bias, provenance, and usefulness of AI/tool output or online sources.",
+    "Behaviors": "Use Tools / AI Responsibly; Critique / Calibrate; Think Critically; Explain",
+    "Format / Modality": "Written, Artifacts, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Shifts AI from hidden author to object of assessment.",
+    "Recommended scoring evidence": "Verification trail, source quality, correction rationale, disclosure.",
+    "Discipline Affinity": "All disciplines using AI/search; media literacy"
+  }
+]

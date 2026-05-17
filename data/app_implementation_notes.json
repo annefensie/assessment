@@ -1,0 +1,42 @@
+[
+  {
+    "Area": "Data model",
+    "Recommendation": "Separate verb lookup from behavior definitions, task types, deliverables, discipline tags, and AI-resistance features.",
+    "Reason": "This avoids hard-coding everything into a single flat table and makes faculty-facing recommendations easier to maintain."
+  },
+  {
+    "Area": "Versioning",
+    "Recommendation": "Add fields: status, approved_by, approved_date, source_keys, and confidence.",
+    "Reason": "The psychometrician can review proposed rows and maintain governance over the recommendation engine."
+  },
+  {
+    "Area": "Outcome parsing",
+    "Recommendation": "Normalize punctuation, lemmatize verbs, and allow multiword verbs such as 'set goals' and 'audit AI output'.",
+    "Reason": "Learning outcomes often contain phrases, not just one-word verbs."
+  },
+  {
+    "Area": "Disambiguation",
+    "Recommendation": "When a verb maps to multiple behaviors, show faculty a clarification prompt.",
+    "Reason": "Some verbs like analyze, evaluate, document, and use vary by context."
+  },
+  {
+    "Area": "AI-resistant output",
+    "Recommendation": "Display AI-resistance affordances as design features, not guarantees.",
+    "Reason": "The goal is valid evidence of learning, not surveillance or detection."
+  },
+  {
+    "Area": "Modality",
+    "Recommendation": "Attach modality transformations to task types and deliverables.",
+    "Reason": "The same behavior may be validly assessed online, hybrid, or in-person if the evidence is aligned."
+  },
+  {
+    "Area": "Accessibility",
+    "Recommendation": "Offer alternatives for oral/live demonstrations when disability, schedule, or privacy issues require accommodations.",
+    "Reason": "Secure assessment should not create unfair barriers."
+  },
+  {
+    "Area": "Faculty UX",
+    "Recommendation": "Return a short rationale: 'Because this outcome asks students to X, choose a task that elicits Y evidence.'",
+    "Reason": "This turns the app into a faculty development tool, not just a lookup list."
+  }
+]

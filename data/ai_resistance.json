@@ -1,0 +1,137 @@
+[
+  {
+    "AI-resistant Design Feature": "Process-product evidence",
+    "Why it helps validity/security": "Assesses both final product and how the learner arrived there.",
+    "Works best for": "Projects, writing, design, coding, research",
+    "Example implementation": "Require draft history, feedback use, revision memo, and final artifact.",
+    "Caution": "Do not overvalue busywork; define representative evidence.",
+    "Source Keys": "Alkouk_Khlaif_2024; Boud_Falchikov_2006; Eportfolio_2024",
+    "Source URLs": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1499495/full; https://eric.ed.gov/?id=EJ736100; https://journals.librarypublishing.arizona.edu/itlt/article/id/5809/"
+  },
+  {
+    "AI-resistant Design Feature": "Oral defense / follow-up questions",
+    "Why it helps validity/security": "Probes reasoning, assumptions, and transfer beyond a submitted artifact.",
+    "Works best for": "High-stakes work, projects, models, code, writing",
+    "Example implementation": "Two to five structured questions after submission.",
+    "Caution": "Needs rubrics/common prompts to maintain fairness.",
+    "Source Keys": "Kane_2013; Alkouk_Khlaif_2024",
+    "Source URLs": "https://www.ets.org/research/policy_research_reports/publications/article/2013/jpdc.html; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1499495/full"
+  },
+  {
+    "AI-resistant Design Feature": "Observed performance",
+    "Why it helps validity/security": "Provides direct evidence of skills that cannot be represented fully in text.",
+    "Works best for": "Clinical, lab, teaching, performance, technical skills",
+    "Example implementation": "Video/in-person demonstration scored with criteria.",
+    "Caution": "Privacy/accessibility accommodations may be needed.",
+    "Source Keys": "Miller_1990; OSCE_Validity_2018; Jonsson_Svingby_2007",
+    "Source URLs": "https://academic.oup.com/academicmedicine/article-abstract/65/9/S63/8361091; https://link.springer.com/article/10.1186/s12909-018-1421-x; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "AI-resistant Design Feature": "Local or learner-generated data",
+    "Why it helps validity/security": "Constrains task to evidence the learner gathered or a local context AI cannot infer.",
+    "Works best for": "Labs, fieldwork, statistics, community projects",
+    "Example implementation": "Use campus/community observations, unique datasets, field notes.",
+    "Caution": "Protect privacy and avoid burdensome access requirements.",
+    "Source Keys": "Gulikers_2004; Hofstein_Lunetta_2004; Villarroel_2018",
+    "Source URLs": "https://link.springer.com/article/10.1007/BF02504676; https://eric.ed.gov/?id=EJ759842; https://eric.ed.gov/?id=EJ1181322"
+  },
+  {
+    "AI-resistant Design Feature": "Dynamic scenarios",
+    "Why it helps validity/security": "Changing information requires situated decision-making rather than static text generation.",
+    "Works best for": "Simulations, cases, troubleshooting, clinical judgment",
+    "Example implementation": "Release case updates and ask learners to revise decisions.",
+    "Caution": "Avoid unnecessary complexity; align updates to outcomes.",
+    "Source Keys": "Issenberg_2005; Gosen_Washbush_2004",
+    "Source URLs": "https://www.unboundmedicine.com/medline/citation/16147767/Features_and_uses_of_high_fidelity_medical_simulations_that_lead_to_effective_learning%3A_a_BEME_systematic_review_; https://eric.ed.gov/?id=EJ962209"
+  },
+  {
+    "AI-resistant Design Feature": "Criteria-based peer/self evaluation",
+    "Why it helps validity/security": "Develops evaluative judgment and provides additional evidence of criteria use.",
+    "Works best for": "Writing, design, projects, presentations",
+    "Example implementation": "Peer review with calibration against exemplars.",
+    "Caution": "Train students on criteria; do not rely solely on peer grades.",
+    "Source Keys": "Tai_2018; Dochy_1999; Jonsson_Svingby_2007",
+    "Source URLs": "https://link.springer.com/article/10.1007/s10734-017-0220-3; https://eric.ed.gov/?id=EJ609990; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "AI-resistant Design Feature": "Authentic audience/stakeholder",
+    "Why it helps validity/security": "Forces adaptation of communication, evidence, and recommendations to context.",
+    "Works best for": "Policy, business, health, education, communication",
+    "Example implementation": "Briefing for a role-specific stakeholder with Q&A.",
+    "Caution": "Avoid simulated authenticity that adds irrelevant barriers.",
+    "Source Keys": "Gulikers_2004; Villarroel_2018",
+    "Source URLs": "https://link.springer.com/article/10.1007/BF02504676; https://eric.ed.gov/?id=EJ1181322"
+  },
+  {
+    "AI-resistant Design Feature": "AI-use disclosure and verification trail",
+    "Why it helps validity/security": "Assesses responsible tool use instead of pretending AI was not available.",
+    "Works best for": "Courses allowing AI/digital tools",
+    "Example implementation": "Prompt log, AI output, verification sources, human edits, decision rationale.",
+    "Caution": "Only use when policy permits AI; be clear about allowed/prohibited uses.",
+    "Source Keys": "Alkouk_Khlaif_2024; GenAI_Assessment_2024",
+    "Source URLs": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1499495/full; https://link.springer.com/article/10.1186/s41239-024-00468-z"
+  },
+  {
+    "AI-resistant Design Feature": "Rubrics with exemplars/rater training",
+    "Why it helps validity/security": "Improves consistency when assessing complex performance evidence.",
+    "Works best for": "Any performance assessment, especially high-stakes",
+    "Example implementation": "Analytic rubric, anchor examples, norming discussion.",
+    "Caution": "Rubrics do not guarantee validity by themselves; align to outcome.",
+    "Source Keys": "Jonsson_Svingby_2007; Panadero_Jonsson_2013; Kane_2013",
+    "Source URLs": "https://eric.ed.gov/?id=EJ796733; https://eric.ed.gov/?id=EJ999454; https://www.ets.org/research/policy_research_reports/publications/article/2013/jpdc.html"
+  },
+  {
+    "AI-resistant Design Feature": "Individual accountability within teams",
+    "Why it helps validity/security": "Separates collaboration evidence from individual learning evidence.",
+    "Works best for": "Team projects, simulations, capstones",
+    "Example implementation": "Contribution statements, peer evaluation, individual oral questions.",
+    "Caution": "Avoid punitive peer ratings; use multiple evidence sources.",
+    "Source Keys": "Chi_Wylie_2014; Dochy_1999; Vlachopoulos_Makri_2024",
+    "Source URLs": "https://files.eric.ed.gov/fulltext/EJ1044018.pdf; https://eric.ed.gov/?id=EJ609990; https://www.sciencedirect.com/science/article/pii/S0191491X24001044"
+  },
+  {
+    "AI-resistant Design Feature": "Hyper-Local / Context-Specific Grounding",
+    "Why it helps validity/security": "Forces the assessment to rely on highly recent, proprietary, or geographically constrained parameters that bypass general LLM training data or pre-programmed knowledge cutoffs.",
+    "Works best for": "Reports, Policy Briefs, Case Studies, Social Sciences, Educational Leadership",
+    "Example implementation": "Analyzing a niche community dispute or a brand-new local school board policy using firsthand stakeholder interviews or local meeting notes.",
+    "Caution": "Can introduce equity disparities if some students lack equal physical access to local sites or niche resources.",
+    "Source Keys": "Faculty_Focus_2026",
+    "Source URLs": "https://www.facultyfocus.com/articles/educational-assessment/designing-ai-resistant-assignments-in-educational-leadership-courses/"
+  },
+  {
+    "AI-resistant Design Feature": "Process-Based Tracking (Process-Product Assessment Model)",
+    "Why it helps validity/security": "Shifts evaluation from the final polished document to the chronological evolution of the work, rendering \"one-shot\" AI text generation completely visible and inadequate.",
+    "Works best for": "Computer Science (Code Repositories), Long-form Essays, Capstones, Research Plans",
+    "Example implementation": "Requiring students to submit interactive version-tracked drafts (e.g., git commit history logs) detailing explicit revisions made in response to milestones.",
+    "Caution": "Markedly increases the grading and tracking workload for instructors monitoring multiple touchpoints.",
+    "Source Keys": "Frontiers_2024;eSchool_News_2026",
+    "Source URLs": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1499495/full;https://www.eschoolnews.com/digital-learning/2026/03/12/ai-classrooms-designing-assessment/"
+  },
+  {
+    "AI-resistant Design Feature": "Live Interactive Defense (Viva Voce)",
+    "Why it helps validity/security": "Validates genuine intellectual ownership and conversational agility through unscripted, spontaneous verbal explanation, instantly peeling away superficial AI fluency.",
+    "Works best for": "Presentations, Group Projects, Business Pitches, Senior Capstones",
+    "Example implementation": "Implementing a brief 3-to-5 minute synchronous Q&A session post-submission where students must verbally defend specific technical design choices.",
+    "Caution": "Highly time-prohibitive in large classes and can inadvertently penalize non-native speakers or induce severe anxiety.",
+    "Source Keys": "eSchool_News_2026; FeedbackFruits_2026",
+    "Source URLs": "https://www.eschoolnews.com/digital-learning/2026/03/12/ai-classrooms-designing-assessment/;https://feedbackfruits.com/blog/ai-resilient-assessment-design-higher-education"
+  },
+  {
+    "AI-resistant Design Feature": "AI Output Auditing & Multi-Layered Annotation",
+    "Why it helps validity/security": "Moves higher-order evaluation to the forefront by framing a flawed AI-generated artifact as the direct object of critique, targeting student discernment instead of text production.",
+    "Works best for": "Code Reviews, Fact-Checking Exercises, Literature Summaries, Answer Questions",
+    "Example implementation": "Supplying students with a highly fluent but factually hollow AI synthesis of a reading and requiring them to cross-verify and annotate its omissions.",
+    "Caution": "Demands a high level of baseline AI and data literacy from both the students and the instructional staff to grade fairly.",
+    "Source Keys": "Grand_Valley_2026",
+    "Source URLs": "https://services.gvsu.edu/TDClient/60/Portal/KB/PrintArticle?ID=28598"
+  },
+  {
+    "AI-resistant Design Feature": "Empirical / Fieldwork Data Integration",
+    "Why it helps validity/security": "Anchors the conceptual and analytical output to un-scrapable, student-generated raw datasets collected in a specific time and environment.",
+    "Works best for": "Lab Reports, Physical Science Experiments, Observational Logs",
+    "Example implementation": "Building a quantitative analysis model entirely dependent on unique data parameters measured by the student during a live lab or site visit.",
+    "Caution": "Highly dependent on successful data collection; if a student's data collection fails, the entire assessment pipeline breaks down.",
+    "Source Keys": "Faculty_Focus_2026",
+    "Source URLs": "https://www.facultyfocus.com/articles/educational-assessment/designing-ai-resistant-assignments-in-educational-leadership-courses/"
+  }
+]

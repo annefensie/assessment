@@ -1,0 +1,9 @@
+Area,Recommendation,Reason
+Data model,"Separate verb lookup from behavior definitions, task types, deliverables, discipline tags, and AI-resistance features.",This avoids hard-coding everything into a single flat table and makes faculty-facing recommendations easier to maintain.
+Versioning,"Add fields: status, approved_by, approved_date, source_keys, and confidence.",The psychometrician can review proposed rows and maintain governance over the recommendation engine.
+Outcome parsing,"Normalize punctuation, lemmatize verbs, and allow multiword verbs such as 'set goals' and 'audit AI output'.","Learning outcomes often contain phrases, not just one-word verbs."
+Disambiguation,"When a verb maps to multiple behaviors, show faculty a clarification prompt.","Some verbs like analyze, evaluate, document, and use vary by context."
+AI-resistant output,"Display AI-resistance affordances as design features, not guarantees.","The goal is valid evidence of learning, not surveillance or detection."
+Modality,Attach modality transformations to task types and deliverables.,"The same behavior may be validly assessed online, hybrid, or in-person if the evidence is aligned."
+Accessibility,"Offer alternatives for oral/live demonstrations when disability, schedule, or privacy issues require accommodations.",Secure assessment should not create unfair barriers.
+Faculty UX,"Return a short rationale: 'Because this outcome asks students to X, choose a task that elicits Y evidence.'","This turns the app into a faculty development tool, not just a lookup list."

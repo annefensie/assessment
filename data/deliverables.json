@@ -1,0 +1,226 @@
+[
+  {
+    "Name": "Report",
+    "Description": "A description, discussion, and analysis. May be used in conjunction with Proposal / Prototype. May also include reflection and/or evaluation. May be prepared for an external audience to assess communication. (A presentation may be a specific format of a project report.)",
+    "Behaviors1": "Explain,Decide / Select,Show Evidence,Implement",
+    "Modality": "Written,Video,Discipline-specific format,Artifacts",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Require case-specific evidence, source/provenance notes, draft feedback, and follow-up questions to verify reasoning rather than polished prose alone."
+  },
+  {
+    "Name": "Portfolio",
+    "Description": "A collection of artifacts gathered from an authentic context. Not bound by a specific time (e.g., a lesson plan from ANY point in the semester, a budget from ANY project you've worked on etc.)",
+    "Behaviors1": "Show Evidence,Implement",
+    "Modality": "Artifacts",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Learner-specific artifacts, dates, annotations, supervisor/peer feedback, and reflection create a process trail that is hard to fabricate generically."
+  },
+  {
+    "Name": "Observation",
+    "Description": "An record of an authentic implementation. May be conducted via video or in person. Used to evaluate context dependent skills, such as facilitation.",
+    "Behaviors1": "React,Interact",
+    "Modality": "Video,In-person observation,Virtual observation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Direct live or recorded evidence of performance makes the assessed behavior visible and supports verification with a rubric or checklist."
+  },
+  {
+    "Name": "Proposal / Prototype",
+    "Description": "A design or plan to address a problem. Often includes some analysis / justification grounded in knowledge and/or observation. Can be used in conjunction with a scenario, or with a real world application.",
+    "Behaviors1": "Create",
+    "Modality": "Artifacts,Written,Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Iteration history, constraints, tests, and design rationale reveal decision-making behind the final product."
+  },
+  {
+    "Name": "Answer questions",
+    "Description": "Extended responses to questions. Elicits explanation of analysis or other critical thinking. Can be used alone or in conjunction with another deliverable (as follow-up questions).",
+    "Behaviors1": "Explain,Decide / Select",
+    "Modality": "Audio/Spoken,Written",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Use tailored scenarios, short follow-up questions, and justification prompts so scoring emphasizes reasoning and transfer."
+  },
+  {
+    "Name": "Presentation",
+    "Description": "Similar to \"Report\" - explanation and analysis of an implemented project, with emphasis on verbal communication.",
+    "Behaviors1": "Explain,Decide / Select,Show Evidence,Create,Interact,React,Implement",
+    "Modality": "Video,In-person observation,Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Audience-specific delivery, Q&A, and time-bound explanation support ownership, transfer, and responsiveness."
+  },
+  {
+    "Name": "Artifact",
+    "Description": "A product created to demonstrate understanding, communication, or show evidence of a competency (such as photos, posters, maps, podcasts, blogs, or other suitable products).",
+    "Behaviors1": "Explain,Show Evidence,Create,Implement",
+    "Modality": "Artifacts,Written,Audio/Spoken,Video,Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Authentic constraints, annotations, provenance, and version history connect the product to the learner's decisions and process."
+  },
+  {
+    "Name": "*None: Must be paired with External Behavior*",
+    "Description": "",
+    "Behaviors1": "Think Critically (Prospective),Think Critically (Retrospective),Know / Understand",
+    "Modality": "",
+    "Learner choice in modality?": "",
+    "AI-resistance affordance": "N/A: internal evidence must be elicited through a paired external deliverable such as explanation, observation, artifact, or oral defense."
+  },
+  {
+    "Name": "Oral defense / Viva response",
+    "Description": "Spoken explanation under structured follow-up questioning.",
+    "Behaviors1": "Argue / Defend; Explain; Model / Represent; Think Critically",
+    "Modality": "Audio/Spoken, Video, In-person observation, Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Verifies reasoning and transfer through follow-up questions."
+  },
+  {
+    "Name": "Lab notebook / Research log",
+    "Description": "Chronological record of question, method, data, observations, decisions, and interpretation.",
+    "Behaviors1": "Investigate / Inquire; Show Evidence; Self-Regulate / Revise",
+    "Modality": "Written, Artifacts, Discipline-specific format",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Process and learner-generated data reduce generic final-product substitution."
+  },
+  {
+    "Name": "Decision memo / Recommendation brief",
+    "Description": "Concise recommendation with evidence, criteria, tradeoffs, and implementation implications.",
+    "Behaviors1": "Decide / Select; Ethical / Professional Judgment; Communicate for Audience",
+    "Modality": "Written, Video, Presentation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Specific scenario constraints and decision criteria focus grading on judgment."
+  },
+  {
+    "Name": "Annotated artifact / Work sample",
+    "Description": "Product annotated to identify design choices, evidence, standards, and revisions.",
+    "Behaviors1": "Create; Explain; Show Evidence; Critique / Calibrate",
+    "Modality": "Artifacts, Written, Video",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Annotations connect final work to learner decisions."
+  },
+  {
+    "Name": "Process log / Design notebook",
+    "Description": "Record of steps, drafts, feedback, failures, decisions, and revisions.",
+    "Behaviors1": "Self-Regulate / Revise; Create; Implement; Use Tools / AI Responsibly",
+    "Modality": "Written, Artifacts, Discipline-specific format",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Process-product evidence is a core AI-resistant feature."
+  },
+  {
+    "Name": "Model / Concept map / Diagram",
+    "Description": "Visual or formal representation of concepts, relationships, systems, data, or mechanisms.",
+    "Behaviors1": "Model / Represent; Explain; Think Critically",
+    "Modality": "Artifacts, Written, Presentation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Requires representation choices and explanation of assumptions."
+  },
+  {
+    "Name": "Data visualization / Dashboard",
+    "Description": "Visual presentation of data with interpretation, limitations, and audience-specific design.",
+    "Behaviors1": "Model / Represent; Communicate for Audience; Think Critically",
+    "Modality": "Artifacts, Written, Presentation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Local data, reproducible files, and audience constraints support authenticity."
+  },
+  {
+    "Name": "Code repository / README / Tests",
+    "Description": "Executable code plus documentation, tests, commit/process history, and rationale.",
+    "Behaviors1": "Implement; Troubleshoot / Diagnose; Use Tools / AI Responsibly",
+    "Modality": "Artifacts, Written, Discipline-specific format",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Tests, commit history, and code walkthrough support authorship evidence."
+  },
+  {
+    "Name": "Peer review report / Calibration note",
+    "Description": "Criteria-based feedback or score justification for peer/exemplar work.",
+    "Behaviors1": "Critique / Calibrate; Explain; Self-Regulate / Revise",
+    "Modality": "Written, Audio/Spoken",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Visible use of criteria and comparison to exemplars provides evidence of judgment."
+  },
+  {
+    "Name": "Rubric-scored observation checklist",
+    "Description": "Structured record of observed performance with criteria and rater notes.",
+    "Behaviors1": "Perform Procedure / Technique; Implement; Interact; React",
+    "Modality": "Observation, Video, In-person observation, Virtual observation",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Direct observation resists text-only outsourcing."
+  },
+  {
+    "Name": "Clinical note / Care plan / Handoff",
+    "Description": "Structured professional communication documenting assessment, plan, priorities, and rationale.",
+    "Behaviors1": "Diagnose / Troubleshoot; Ethical / Professional Judgment; Communicate for Audience",
+    "Modality": "Written, Audio/Spoken, Discipline-specific format",
+    "Learner choice in modality?": "No choice",
+    "AI-resistance affordance": "Scenario-specific patient/client data and oral handoff can verify reasoning."
+  },
+  {
+    "Name": "Lesson plan / Teaching video",
+    "Description": "Instructional plan and/or recorded teaching demonstration with reflection and evidence of learner needs.",
+    "Behaviors1": "Create; Perform Procedure / Technique; Communicate for Audience; Self-Regulate / Revise",
+    "Modality": "Written, Video, Observation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Contextualized teaching artifacts and reflection support authenticity."
+  },
+  {
+    "Name": "Source analysis packet / Evidence matrix",
+    "Description": "Table or packet documenting source provenance, credibility, corroboration, and use in claims.",
+    "Behaviors1": "Investigate / Inquire; Argue / Defend; Think Critically",
+    "Modality": "Written, Artifacts",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Requires assigned-source reasoning and evidence traceability."
+  },
+  {
+    "Name": "Policy brief / Stakeholder brief",
+    "Description": "Audience-specific document summarizing issue, evidence, options, tradeoffs, and recommendation.",
+    "Behaviors1": "Communicate for Audience; Decide / Select; Argue / Defend",
+    "Modality": "Written, Presentation, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Audience and decision constraints require situated communication."
+  },
+  {
+    "Name": "Portfolio reflection / Self-assessment",
+    "Description": "Reflective evidence linking artifacts to criteria, learning progress, and future improvement.",
+    "Behaviors1": "Self-Regulate / Revise; Show Evidence; Critique / Calibrate",
+    "Modality": "Written, Video, Artifacts",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Learner-specific evidence and future action plan resist generic reflection."
+  },
+  {
+    "Name": "Prototype iteration history",
+    "Description": "Sequence of prototype versions, tests, critique, and rationale for changes.",
+    "Behaviors1": "Create; Self-Regulate / Revise; Troubleshoot / Diagnose",
+    "Modality": "Artifacts, Written, Video",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Iteration history documents process, decisions, and response to constraints."
+  },
+  {
+    "Name": "Debate brief / Argument map",
+    "Description": "Structured claim-evidence-reasoning artifact that anticipates counterarguments.",
+    "Behaviors1": "Argue / Defend; Explain; Think Critically",
+    "Modality": "Written, Presentation",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Constrains reasoning to assigned evidence and counterargument structure."
+  },
+  {
+    "Name": "Client communication artifact",
+    "Description": "Email, script, counseling response, handoff, pitch, or other communication tailored to a client/stakeholder.",
+    "Behaviors1": "Communicate for Audience; Interact; Ethical / Professional Judgment",
+    "Modality": "Written, Audio/Spoken, Video",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Specific audience, scenario, and standards make generic prose insufficient."
+  },
+  {
+    "Name": "AI-use disclosure / Prompt audit trail",
+    "Description": "Documented record of AI/tool use, prompts, outputs, verification, changes, and human decisions.",
+    "Behaviors1": "Use Tools / AI Responsibly; Show Evidence; Critique / Calibrate",
+    "Modality": "Written, Artifacts",
+    "Learner choice in modality?": "Always",
+    "AI-resistance affordance": "Makes AI involvement transparent and assessable."
+  },
+  {
+    "Name": "Research poster with Q&A",
+    "Description": "Concise public-facing presentation of question, method, findings, limitations, and responses to questions.",
+    "Behaviors1": "Investigate / Inquire; Communicate for Audience; Argue / Defend",
+    "Modality": "Presentation, Video, Written",
+    "Learner choice in modality?": "Decided by program",
+    "AI-resistance affordance": "Q&A probes ownership and reasoning behind concise evidence claims."
+  }
+]

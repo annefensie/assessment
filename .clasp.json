@@ -1,0 +1,13 @@
+{
+  "scriptId": "REPLACE_WITH_SCRIPT_ID",
+  "rootDir": "./src",
+  "filePushOrder": [
+    "FrameworkData.gs",
+    "SheetDB.gs",
+    "Framework.gs",
+    "PromptGen.gs",
+    "Setup.gs",
+    "Admin.gs",
+    "Code.gs"
+  ]
+}

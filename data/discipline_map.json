@@ -1,0 +1,212 @@
+[
+  {
+    "Discipline / Program Cluster": "Health professions / Nursing / Medicine",
+    "Particularly Appropriate Task Types": "Simulation; Scenario; Role Play; Real world demonstration; Performance task / Skills check; OSCE / Standardized client station; Case-based decision memo; Fieldwork / Practicum evidence; AI audit / Source verification task",
+    "Recommended Deliverables": "Clinical note / Care plan / Handoff; Rubric-scored observation checklist; Oral defense / Viva response; Decision memo / Recommendation brief; Process log / Design notebook; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Diagnose, triage, administer, counsel, escalate, safeguard, handoff, monitor",
+    "Why this fit is strong": "Clinical competence often requires observed performance, interaction, safety, and situated judgment under constraints.",
+    "AI-resistant design moves": "Use standardized patients, station-specific data, observed performance, oral handoff, and follow-up questioning.",
+    "Primary Source Keys": "Miller_1990, OSCE_Validity_2018, Issenberg_2005, HealthSim_Quality_2023",
+    "Source URLs": "https://academic.oup.com/academicmedicine/article-abstract/65/9/S63/8361091; https://link.springer.com/article/10.1186/s12909-018-1421-x; https://www.unboundmedicine.com/medline/citation/16147767/Features_and_uses_o...; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10767249/"
+  },
+  {
+    "Discipline / Program Cluster": "Social work / Counseling / Human services",
+    "Particularly Appropriate Task Types": "Scenario; Role Play; Real world demonstration; OSCE / Standardized client station; Case-based decision memo; Structured debate / Moot court; Fieldwork / Practicum evidence; Community-based project; Process-product portfolio assessment",
+    "Recommended Deliverables": "Client communication artifact; Rubric-scored observation checklist; Decision memo / Recommendation brief; Portfolio reflection / Self-assessment; Oral defense / Viva response; Source analysis packet / Evidence matrix",
+    "High-value Verbs to Add / Emphasize": "Interview, assess risk, de-escalate, advocate, consent, refer, document, reflect",
+    "Why this fit is strong": "Competence involves human interaction, ethics, empathy, risk assessment, documentation, and response to complex client contexts.",
+    "AI-resistant design moves": "Use actor/simulated clients, live follow-up, de-identified case notes, supervisor feedback, and reflective process evidence.",
+    "Primary Source Keys": "SocialWork_StandardizedClients_2013, Gulikers_2004, Boud_Falchikov_2006",
+    "Source URLs": "https://eric.ed.gov/?id=EJ1012032; https://link.springer.com/article/10.1007/BF02504676; https://eric.ed.gov/?id=EJ736100"
+  },
+  {
+    "Discipline / Program Cluster": "Psychology / Behavioral science",
+    "Particularly Appropriate Task Types": "Scenario; Inquiry / Investigation; Data analysis practicum; Case-based decision memo; Peer review / Calibration; Process-product portfolio assessment; Role Play; AI audit / Source verification task",
+    "Recommended Deliverables": "Report; Lab notebook / Research log; Data visualization / Dashboard; Peer review report / Calibration note; Portfolio reflection / Self-assessment; Oral defense / Viva response; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Operationalize, interpret, diagnose, observe, analyze behavior, evaluate evidence, communicate findings",
+    "Why this fit is strong": "Psychology outcomes often require applying theory to behavior, interpreting evidence, evaluating methods, and communicating ethically.",
+    "AI-resistant design moves": "Use local/assigned data, scenario variants, method logs, participant/client constraints, and oral explanation of interpretation.",
+    "Primary Source Keys": "Psych_Assessment_2025, Kane_2013, Jonsson_Svingby_2007",
+    "Source URLs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12218498/; https://www.ets.org/research/policy_research_reports/publications/article/201...; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "Discipline / Program Cluster": "Teacher education",
+    "Particularly Appropriate Task Types": "Scenario; Real world demonstration; Design project; Performance task / Skills check; Case-based decision memo; Peer review / Calibration; Process-product portfolio assessment; Fieldwork / Practicum evidence; Community-based project",
+    "Recommended Deliverables": "Lesson plan / Teaching video; Rubric-scored observation checklist; Portfolio reflection / Self-assessment; Annotated artifact / Work sample; Peer review report / Calibration note; Oral defense / Viva response",
+    "High-value Verbs to Add / Emphasize": "Differentiate, facilitate, adapt, assess, reflect, revise, scaffold, align",
+    "Why this fit is strong": "Teaching requires performance in context and analysis of learner needs, standards, evidence, and instructional effects.",
+    "AI-resistant design moves": "Use video observation, contextualized learner profiles, lesson artifacts, feedback cycles, and reflection tied to evidence.",
+    "Primary Source Keys": "DarlingHammond_Snyder_2000, Boud_Falchikov_2006, Jonsson_Svingby_2007",
+    "Source URLs": "https://eric.ed.gov/?id=EJ610676; https://eric.ed.gov/?id=EJ736100; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "Discipline / Program Cluster": "Engineering / Technology",
+    "Particularly Appropriate Task Types": "Simulation; Real world demonstration; Real world project; Design project; Performance task / Skills check; Lab practicum; Modeling task; Peer review / Calibration; Capstone / Client project; Design critique / Studio review; Process-product portfolio assessment",
+    "Recommended Deliverables": "Proposal / Prototype; Prototype iteration history; Process log / Design notebook; Model / Concept map / Diagram; Rubric-scored observation checklist; Report; Presentation; Peer review report / Calibration note",
+    "High-value Verbs to Add / Emphasize": "Model, optimize, troubleshoot, fabricate, validate, configure, test, iterate",
+    "Why this fit is strong": "Engineering outcomes often require design under constraints, testing, iteration, tradeoff analysis, and communication to technical and nontechnical audiences.",
+    "AI-resistant design moves": "Require design logs, test data, prototype demos, stakeholder constraints, peer critique, and oral design review.",
+    "Primary Source Keys": "Gulikers_2004, Math_Modeling_Rubric_2022, Villarroel_2018",
+    "Source URLs": "https://link.springer.com/article/10.1007/BF02504676; https://academic.oup.com/teamat/article/42/3/266/6751014; https://eric.ed.gov/?id=EJ1181322"
+  },
+  {
+    "Discipline / Program Cluster": "Computer science / Information systems",
+    "Particularly Appropriate Task Types": "Simulation; Scenario; Real world project; Design project; Performance task / Skills check; Modeling task; Data analysis practicum; Code walkthrough / Interview; Capstone / Client project; Peer review / Calibration; AI audit / Source verification task",
+    "Recommended Deliverables": "Code repository / README / Tests; AI-use disclosure / Prompt audit trail; Process log / Design notebook; Data visualization / Dashboard; Oral defense / Viva response; Peer review report / Calibration note",
+    "High-value Verbs to Add / Emphasize": "Debug, refactor, configure, replicate, verify output, document AI use, test",
+    "Why this fit is strong": "Code correctness alone is insufficient; maintainability, reasoning, debugging process, testing, and responsible tool use matter.",
+    "AI-resistant design moves": "Use individualized repositories, commits/process history, test suites, live code explanation, debugging prompts, and tool-use disclosure.",
+    "Primary Source Keys": "CS_Autograding_2024, CS_Code_Interviews_2025, Alkouk_Khlaif_2024",
+    "Source URLs": "https://dl.acm.org/doi/10.1145/3636515; https://sigcse2025.sigcse.org/details/sigcse-ts-2025-Papers/66/Code-Interview...; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.14..."
+  },
+  {
+    "Discipline / Program Cluster": "Cybersecurity / Information assurance",
+    "Particularly Appropriate Task Types": "Simulation; Simulation game / Business game; Scenario; Performance task / Skills check; Lab practicum; Code walkthrough / Interview; Case-based decision memo; Structured debate / Moot court; AI audit / Source verification task",
+    "Recommended Deliverables": "Code repository / README / Tests; Process log / Design notebook; Rubric-scored observation checklist; Decision memo / Recommendation brief; Source analysis packet / Evidence matrix; Oral defense / Viva response; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Exploit, defend, harden, monitor, investigate, verify, document risk, respond",
+    "Why this fit is strong": "Cybersecurity learning often requires hands-on tasks, adversarial reasoning, evidence trails, risk judgment, and communication of mitigation choices.",
+    "AI-resistant design moves": "Use isolated labs/cyber ranges, unique artifacts/logs, screen-recorded walkthroughs, incident debriefs, and verification of AI/security-tool output.",
+    "Primary Source Keys": "Cyber_CTF_2020, CS_Code_Interviews_2025, Alkouk_Khlaif_2024",
+    "Source URLs": "https://www.sciencedirect.com/science/article/pii/S0167404820304272; https://sigcse2025.sigcse.org/details/sigcse-ts-2025-Papers/66/Code-Interview...; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.14..."
+  },
+  {
+    "Discipline / Program Cluster": "Natural sciences / Lab sciences",
+    "Particularly Appropriate Task Types": "Real world demonstration; Inquiry / Investigation; Lab practicum; Modeling task; Data analysis practicum; Process-product portfolio assessment; AI audit / Source verification task",
+    "Recommended Deliverables": "Lab notebook / Research log; Data visualization / Dashboard; Research poster with Q&A; Model / Concept map / Diagram; Report; Oral defense / Viva response; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Hypothesize, sample, measure, triangulate, explain, interpret, replicate, evaluate uncertainty",
+    "Why this fit is strong": "Scientific learning involves inquiry, evidence, method, data quality, representation, interpretation, and limitations.",
+    "AI-resistant design moves": "Require learner-generated data, lab notebook, method rationale, reproducible files, and poster Q&A.",
+    "Primary Source Keys": "Hofstein_Lunetta_2004, Gulikers_2004, Vlachopoulos_Makri_2024",
+    "Source URLs": "https://eric.ed.gov/?id=EJ759842; https://link.springer.com/article/10.1007/BF02504676; https://www.sciencedirect.com/science/article/pii/S0191491X24001044"
+  },
+  {
+    "Discipline / Program Cluster": "Agriculture / Environmental science / Sustainability",
+    "Particularly Appropriate Task Types": "Scenario; Real world demonstration; Real world project; Inquiry / Investigation; Lab practicum; Modeling task; Data analysis practicum; Fieldwork / Practicum evidence; Community-based project; Policy lab / Stakeholder briefing; Process-product portfolio assessment",
+    "Recommended Deliverables": "Lab notebook / Research log; Data visualization / Dashboard; Policy brief / Stakeholder brief; Report; Portfolio; Rubric-scored observation checklist; Research poster with Q&A; Process log / Design notebook",
+    "High-value Verbs to Add / Emphasize": "Sample, monitor, steward, assess risk, map, model, recommend, manage systems, communicate tradeoffs",
+    "Why this fit is strong": "These fields require place-based evidence, field/lab methods, systems thinking, stakeholder communication, and decisions under ecological or production constraints.",
+    "AI-resistant design moves": "Use local sites/data, field logs, geotagged or time-stamped evidence, stakeholder constraints, and public-facing briefs.",
+    "Primary Source Keys": "Ag_Experiential_2024, Env_Authentic_2024, Hofstein_Lunetta_2004, Gulikers_2004",
+    "Source URLs": "https://eric.ed.gov/?id=EJ1427027; https://eric.ed.gov/?id=EJ1453670; https://eric.ed.gov/?id=EJ759842; https://link.springer.com/article/10.1007/BF02504676"
+  },
+  {
+    "Discipline / Program Cluster": "Mathematics / Statistics / Economics",
+    "Particularly Appropriate Task Types": "Scenario; Modeling task; Data analysis practicum; Oral exam / Viva; Simulation game / Business game; Case-based decision memo; AI audit / Source verification task",
+    "Recommended Deliverables": "Model / Concept map / Diagram; Data visualization / Dashboard; Report; Oral defense / Viva response; Decision memo / Recommendation brief; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Model, prove, estimate, forecast, optimize, parameterize, justify assumptions",
+    "Why this fit is strong": "Competence often requires representation, assumptions, proof or inference, sensitivity analysis, and communication of uncertainty.",
+    "AI-resistant design moves": "Use oral defense of assumptions, unique data sets, sensitivity checks, step-specific rubrics, and reproducibility artifacts.",
+    "Primary Source Keys": "Math_Modeling_Rubric_2022, Kane_2013, Jonsson_Svingby_2007",
+    "Source URLs": "https://academic.oup.com/teamat/article/42/3/266/6751014; https://www.ets.org/research/policy_research_reports/publications/article/201...; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "Discipline / Program Cluster": "Business / Management / Entrepreneurship",
+    "Particularly Appropriate Task Types": "Simulation; Scenario; Role Play; Real world project; Design project; Case-based decision memo; Peer review / Calibration; Capstone / Client project; Simulation game / Business game; Policy lab / Stakeholder briefing",
+    "Recommended Deliverables": "Decision memo / Recommendation brief; Presentation; Policy brief / Stakeholder brief; Proposal / Prototype; Client communication artifact; Process log / Design notebook; Portfolio reflection / Self-assessment",
+    "High-value Verbs to Add / Emphasize": "Forecast, prioritize, negotiate, weigh, pitch, benchmark, allocate, justify",
+    "Why this fit is strong": "Business assessment commonly uses dynamic decisions, tradeoffs, stakeholders, markets, and communication for action.",
+    "AI-resistant design moves": "Use simulation logs, changing market conditions, stakeholder Q&A, decision rationales, and team contribution evidence.",
+    "Primary Source Keys": "Gosen_Washbush_2004, Villarroel_2018, Gulikers_2004",
+    "Source URLs": "https://eric.ed.gov/?id=EJ962209; https://eric.ed.gov/?id=EJ1181322; https://link.springer.com/article/10.1007/BF02504676"
+  },
+  {
+    "Discipline / Program Cluster": "Tourism / Hospitality / Event management",
+    "Particularly Appropriate Task Types": "Simulation; Simulation game / Business game; Role Play; Scenario; Real world demonstration; Real world project; Case-based decision memo; Community-based project; Capstone / Client project; Fieldwork / Practicum evidence",
+    "Recommended Deliverables": "Client communication artifact; Decision memo / Recommendation brief; Rubric-scored observation checklist; Report; Presentation; Portfolio reflection / Self-assessment; Process log / Design notebook",
+    "High-value Verbs to Add / Emphasize": "Serve, recover service, forecast demand, design experience, coordinate operations, communicate with guests",
+    "Why this fit is strong": "Service-oriented programs require authentic customer/stakeholder interaction, operational judgment, teamwork, and response to changing conditions.",
+    "AI-resistant design moves": "Use service-recovery role plays, event constraints, simulation decision logs, fieldwork evidence, and stakeholder/client feedback.",
+    "Primary Source Keys": "Tourism_Sim_2021, Gosen_Washbush_2004, Villarroel_2018",
+    "Source URLs": "https://files.eric.ed.gov/fulltext/EJ1341383.pdf; https://eric.ed.gov/?id=EJ962209; https://eric.ed.gov/?id=EJ1181322"
+  },
+  {
+    "Discipline / Program Cluster": "Healthcare administration / Health systems management",
+    "Particularly Appropriate Task Types": "Simulation; Scenario; Role Play; Case-based decision memo; Data analysis practicum; Policy lab / Stakeholder briefing; Capstone / Client project; Structured debate / Moot court; Community-based project; Peer review / Calibration",
+    "Recommended Deliverables": "Decision memo / Recommendation brief; Policy brief / Stakeholder brief; Data visualization / Dashboard; Client communication artifact; Presentation; Process log / Design notebook; Portfolio reflection / Self-assessment",
+    "High-value Verbs to Add / Emphasize": "Allocate, improve quality, evaluate risk, negotiate, comply, analyze metrics, communicate change",
+    "Why this fit is strong": "Health administration requires integrating data, policy, ethics, operations, stakeholder communication, and quality/safety priorities.",
+    "AI-resistant design moves": "Use local health-system data, changing constraints, stakeholder briefings, team decision logs, and QI/implementation artifacts.",
+    "Primary Source Keys": "HealthSim_Quality_2023, Gosen_Washbush_2004, Villarroel_2018, Kane_2013",
+    "Source URLs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10767249/; https://eric.ed.gov/?id=EJ962209; https://eric.ed.gov/?id=EJ1181322; https://www.ets.org/research/policy_research_reports/publications/article/201..."
+  },
+  {
+    "Discipline / Program Cluster": "Humanities / History / Literature / Philosophy",
+    "Particularly Appropriate Task Types": "Scenario; Oral exam / Viva; Structured debate / Moot court; Peer review / Calibration; Process-product portfolio assessment; Primary-source/document-based assessment; AI audit / Source verification task",
+    "Recommended Deliverables": "Source analysis packet / Evidence matrix; Debate brief / Argument map; Report; Oral defense / Viva response; Peer review report / Calibration note; Portfolio reflection / Self-assessment; Annotated artifact / Work sample; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Interpret, contextualize, close-read, corroborate, refute, cite, argue, question assumptions",
+    "Why this fit is strong": "Humanities assessment often centers on evidence interpretation, textual/source analysis, argument quality, and disciplinary reasoning.",
+    "AI-resistant design moves": "Use assigned source/text packets, evidence matrices, argument maps, oral defense, peer calibration, and process portfolios.",
+    "Primary Source Keys": "Wineburg_1991, Smith_Breakstone_Wineburg_2019, Argument_Rubrics_2013, Tai_2018",
+    "Source URLs": "https://eric.ed.gov/?id=EJ436869; https://www.jstor.org/stable/pdf/48541494.pdf; https://files.eric.ed.gov/fulltext/EJ1068572.pdf; https://link.springer.com/article/10.1007/s10734-017-0220-3"
+  },
+  {
+    "Discipline / Program Cluster": "Languages / Communication",
+    "Particularly Appropriate Task Types": "Scenario; Role Play; Real world demonstration; Oral exam / Viva; Peer review / Calibration; Process-product portfolio assessment; Capstone / Client project",
+    "Recommended Deliverables": "Client communication artifact; Oral defense / Viva response; Presentation; Portfolio reflection / Self-assessment; Peer review report / Calibration note; Annotated artifact / Work sample",
+    "High-value Verbs to Add / Emphasize": "Negotiate meaning, converse, brief, translate, persuade for audience, adapt tone",
+    "Why this fit is strong": "Oral and written communication require observable, functional, context-sensitive performance for a defined audience.",
+    "AI-resistant design moves": "Use live/recorded interactions, role cards, audience constraints, unscripted follow-up, and peer/audience feedback.",
+    "Primary Source Keys": "Language_Oral_2026, Chi_Wylie_2014, Dochy_1999",
+    "Source URLs": "https://link.springer.com/article/10.1007/s10758-026-09963-w; https://files.eric.ed.gov/fulltext/EJ1044018.pdf; https://eric.ed.gov/?id=EJ609990"
+  },
+  {
+    "Discipline / Program Cluster": "Arts / Design / Architecture / Media",
+    "Particularly Appropriate Task Types": "Real world demonstration; Real world project; Design project; Peer review / Calibration; Process-product portfolio assessment; Capstone / Client project; Design critique / Studio review; AI audit / Source verification task",
+    "Recommended Deliverables": "Artifact; Portfolio; Prototype iteration history; Process log / Design notebook; Annotated artifact / Work sample; Presentation; Peer review report / Calibration note; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Iterate, critique, render, compose, curate, revise, explain choices, adapt to constraints",
+    "Why this fit is strong": "Creative work is best assessed through artifacts, process, critique, criteria, reflection, and revision.",
+    "AI-resistant design moves": "Require process book, critique response, version history, audience/client constraints, and live presentation.",
+    "Primary Source Keys": "Design_Critique_2025, Tai_2018, Jonsson_Svingby_2007",
+    "Source URLs": "https://link.springer.com/article/10.1007/s44217-025-00824-9; https://link.springer.com/article/10.1007/s10734-017-0220-3; https://eric.ed.gov/?id=EJ796733"
+  },
+  {
+    "Discipline / Program Cluster": "Public policy / Public health",
+    "Particularly Appropriate Task Types": "Scenario; Real world project; Case-based decision memo; Structured debate / Moot court; Data analysis practicum; Simulation game / Business game; Community-based project; Policy lab / Stakeholder briefing; AI audit / Source verification task",
+    "Recommended Deliverables": "Policy brief / Stakeholder brief; Data visualization / Dashboard; Decision memo / Recommendation brief; Source analysis packet / Evidence matrix; Presentation; Portfolio reflection / Self-assessment; AI-use disclosure / Prompt audit trail",
+    "High-value Verbs to Add / Emphasize": "Synthesize, advocate, weigh, mitigate, forecast, communicate for audience, evaluate equity",
+    "Why this fit is strong": "Work requires evidence synthesis, feasibility judgment, stakeholder communication, ethics/equity, and actionable recommendations.",
+    "AI-resistant design moves": "Use local data, stakeholder constraints, briefings with Q&A, evidence matrices, and transparent tool/source use.",
+    "Primary Source Keys": "Villarroel_2018, Gulikers_2004, Vlachopoulos_Makri_2024, GenAI_Assessment_2024",
+    "Source URLs": "https://eric.ed.gov/?id=EJ1181322; https://link.springer.com/article/10.1007/BF02504676; https://www.sciencedirect.com/science/article/pii/S0191491X24001044; https://link.springer.com/article/10.1186/s41239-024-00468-z"
+  },
+  {
+    "Discipline / Program Cluster": "Criminal justice / Legal studies",
+    "Particularly Appropriate Task Types": "Simulation; Scenario; Role Play; Case-based decision memo; Structured debate / Moot court; Primary-source/document-based assessment; AI audit / Source verification task",
+    "Recommended Deliverables": "Debate brief / Argument map; Source analysis packet / Evidence matrix; Decision memo / Recommendation brief; Client communication artifact; Oral defense / Viva response; Report",
+    "High-value Verbs to Add / Emphasize": "Argue, defend, corroborate, weigh, refute, comply, apply procedure, evaluate evidence",
+    "Why this fit is strong": "Legal/criminal justice learning emphasizes evidence, procedure, argument, ethics, and judgment under constraints.",
+    "AI-resistant design moves": "Use assigned fact patterns, changing facts, oral argument, procedural criteria, evidence matrices, and response to questioning.",
+    "Primary Source Keys": "Argument_Rubrics_2013, Kane_2013, Wineburg_1991",
+    "Source URLs": "https://files.eric.ed.gov/fulltext/EJ1068572.pdf; https://www.ets.org/research/policy_research_reports/publications/article/201...; https://eric.ed.gov/?id=EJ436869"
+  },
+  {
+    "Discipline / Program Cluster": "Library / Information / Media literacy",
+    "Particularly Appropriate Task Types": "Scenario; Inquiry / Investigation; Primary-source/document-based assessment; Peer review / Calibration; Process-product portfolio assessment; AI audit / Source verification task",
+    "Recommended Deliverables": "Source analysis packet / Evidence matrix; AI-use disclosure / Prompt audit trail; Report; Peer review report / Calibration note; Oral defense / Viva response; Portfolio reflection / Self-assessment",
+    "High-value Verbs to Add / Emphasize": "Verify, source, search, triangulate, annotate, evaluate credibility, disclose tool use",
+    "Why this fit is strong": "Information literacy assessment focuses on source evaluation, search strategy, evidence credibility, and transparent tool use.",
+    "AI-resistant design moves": "Use assigned/local source sets, audit trails, source verification tasks, and oral explanation of search decisions.",
+    "Primary Source Keys": "Smith_Breakstone_Wineburg_2019, Alkouk_Khlaif_2024, GenAI_Assessment_2024",
+    "Source URLs": "https://www.jstor.org/stable/pdf/48541494.pdf; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.14...; https://link.springer.com/article/10.1186/s41239-024-00468-z"
+  },
+  {
+    "Discipline / Program Cluster": "Exercise science / Kinesiology / Athletic training",
+    "Particularly Appropriate Task Types": "Real world demonstration; Performance task / Skills check; OSCE / Standardized client station; Fieldwork / Practicum evidence; Lab practicum; Case-based decision memo; Process-product portfolio assessment; Community-based project",
+    "Recommended Deliverables": "Rubric-scored observation checklist; Clinical note / Care plan / Handoff; Portfolio reflection / Self-assessment; Lab notebook / Research log; Process log / Design notebook; Report",
+    "High-value Verbs to Add / Emphasize": "Assess movement, cue, prescribe, monitor, adapt, coach, document, evaluate risk",
+    "Why this fit is strong": "Exercise science outcomes often require observable practical technique, client interaction, safety, interpretation of physiological data, and professional judgment.",
+    "AI-resistant design moves": "Use observed skills checks, client-specific data, practicum evidence, supervisor feedback, and reflection on coaching/technique choices.",
+    "Primary Source Keys": "Exercise_WIL_2010, Miller_1990, OSCE_Validity_2018, Hofstein_Lunetta_2004",
+    "Source URLs": "https://www.ijwil.org/files/APJCE_11_3_153_167.pdf; https://academic.oup.com/academicmedicine/article-abstract/65/9/S63/8361091; https://link.springer.com/article/10.1186/s12909-018-1421-x; https://eric.ed.gov/?id=EJ759842"
+  },
+  {
+    "Discipline / Program Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry",
+    "Particularly Appropriate Task Types": "Scenario; Inquiry / Investigation; Community-based project; Primary-source/document-based assessment; Structured debate / Moot court; Process-product portfolio assessment; Peer review / Calibration; Data analysis practicum; AI audit / Source verification task",
+    "Recommended Deliverables": "Source analysis packet / Evidence matrix; Report; Policy brief / Stakeholder brief; Debate brief / Argument map; Portfolio reflection / Self-assessment; Peer review report / Calibration note; Data visualization / Dashboard",
+    "High-value Verbs to Add / Emphasize": "Analyze power, compare perspectives, code data, evaluate positionality, synthesize, critique assumptions",
+    "Why this fit is strong": "These fields often assess theory application, qualitative/quantitative evidence, reflexivity, structural analysis, and communication about contested issues.",
+    "AI-resistant design moves": "Use local/community data, positionality/reflexive process notes, assigned source sets, peer calibration, and transparent source/AI-use trails.",
+    "Primary Source Keys": "FeministReflective_2025, Argument_Rubrics_2013, Villarroel_2018, Tai_2018",
+    "Source URLs": "https://www.tandfonline.com/doi/full/10.1080/09540253.2025.2508761; https://files.eric.ed.gov/fulltext/EJ1068572.pdf; https://eric.ed.gov/?id=EJ1181322; https://link.springer.com/article/10.1007/s10734-017-0220-3"
+  }
+]

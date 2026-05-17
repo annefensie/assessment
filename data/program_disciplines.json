@@ -1,0 +1,614 @@
+[
+  {
+    "Program": "American Studies, M.A.",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Organizational Leadership, M.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Business Intelligence Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Communication Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Corporate Social Responsibility Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Entrepreneurship Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Finance Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Global Business Management Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Healthcare Management Concentration",
+    "Discipline Cluster": "Healthcare administration / Health systems management"
+  },
+  {
+    "Program": "Business, M.S. - Human Resource Management Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Project Management Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business, M.S. - Supply Chain Management Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business Administration, Supply Chain Management Concentration, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Accounting, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Biology, Ecology, Evolution & Biodiversity Concentration, B.A.",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Biology, Pre-Medical Concentration, B.A.",
+    "Discipline Cluster": "Health professions / Nursing / Medicine"
+  },
+  {
+    "Program": "Biology, Psychological Biology Concentration, B.A.",
+    "Discipline Cluster": "Psychology / Behavioral science"
+  },
+  {
+    "Program": "Biology, Self-Designed Concentration, B.A.",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Business Administration, Accounting Concentration, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business Administration, Cybersecurity Concentration, B.A.",
+    "Discipline Cluster": "Cybersecurity / Information assurance"
+  },
+  {
+    "Program": "Business Administration, Hospitality Concentration, B.A.",
+    "Discipline Cluster": "Tourism / Hospitality / Event management"
+  },
+  {
+    "Program": "Business Administration, Leadership Concentration, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business Administration, Marketing Concentration, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business Administration, Outdoor Recreation Concentration, B.A.",
+    "Discipline Cluster": "Tourism / Hospitality / Event management"
+  },
+  {
+    "Program": "Business Administration, Project Management Concentration, B.A.",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Business Administration, Sport Management Concentration, B. A.",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Business Administration, Tourism Concentration, B. A.",
+    "Discipline Cluster": "Tourism / Hospitality / Event management"
+  },
+  {
+    "Program": "Criminal Justice, B.A.",
+    "Discipline Cluster": "Criminal justice / Legal studies"
+  },
+  {
+    "Program": "English and Media Studies B.A., General Concentration",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "English and Media Studies, B.A., Media and Cultural Studies Concentration",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "English and Media Studies - Media and Cultural Studies Concentration, B.A. (YP)",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "English and Media Studies, B.A., Writing Concentration",
+    "Discipline Cluster": "Languages / Communication"
+  },
+  {
+    "Program": "History & Political Science, History Concentration, B.A.",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "History & Political Science, Political Science Concentration, B.A.",
+    "Discipline Cluster": "Public policy / Public health"
+  },
+  {
+    "Program": "Psychology, Biopsychology Concentration, B.A.",
+    "Discipline Cluster": "Psychology / Behavioral science"
+  },
+  {
+    "Program": "Psychology, Business Psychology Concentration, B.A.",
+    "Discipline Cluster": "Psychology / Behavioral science"
+  },
+  {
+    "Program": "Psychology, General Concentration, B.A.",
+    "Discipline Cluster": "Psychology / Behavioral science"
+  },
+  {
+    "Program": "Agricultural Science & Agribusiness, B.S.",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Art Education, B.S.",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Computer Science, Information and Data Management Concentration, B.S.",
+    "Discipline Cluster": "Computer science / Information systems"
+  },
+  {
+    "Program": "Computer Science, Software Development Concentration, B.S.",
+    "Discipline Cluster": "Computer science / Information systems"
+  },
+  {
+    "Program": "Cybersecurity, B.S.",
+    "Discipline Cluster": "Cybersecurity / Information assurance"
+  },
+  {
+    "Program": "Early Childhood Education, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Art Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Early Childhood Education Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, English Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Mathematics Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Science Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Social Studies Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Elementary Education, Special Education Concentration, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Environmental Science & Sustainability, Natural Resources & Environmental Science Concentration, B.S.",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Environmental Science & Sustainability, Sustainable Agriculture Concentration, B.S.",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Exercise Science Self-Designed, B.S.",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Exercise Science, Health & Fitness Concentration, B.S.",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Exercise Science, Pre-Health Care Concentration, B.S.",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Healthcare Administration - Community Health Concentration",
+    "Discipline Cluster": "Healthcare administration / Health systems management"
+  },
+  {
+    "Program": "Mathematics, Actuarial Science Concentration, B.S.",
+    "Discipline Cluster": "Mathematics / Statistics / Economics"
+  },
+  {
+    "Program": "Mathematics, B.S.",
+    "Discipline Cluster": "Mathematics / Statistics / Economics"
+  },
+  {
+    "Program": "Physical Education, B.S.",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Secondary Education - English, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Mathematics, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Life Science, B.S",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Physical Science, B.S",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Social Studies, B.S.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Applied Science, B.A.S.",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Liberal Studies, B.L.S.",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Art, B.F.A.",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Nursing, B.S.N. (Transition Program for UMFK)",
+    "Discipline Cluster": "Health professions / Nursing / Medicine"
+  },
+  {
+    "Program": "Social Work, B.S.W.",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "Elementary Education, B.S (PB)",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Physical Education, B.S. (PB)",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Secondary Education - Life Science, B.S (PB)",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Secondary Education - Physical Science, B.S (PB)",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Secondary Education - English, B.S (PB)",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Mathematics, B.S (PB)",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Secondary Education - Social Studies, B.S (PB)",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Applied Art, A.A.",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Criminal Justice, A.A.",
+    "Discipline Cluster": "Criminal justice / Legal studies"
+  },
+  {
+    "Program": "Early Childhood Education, A. A.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Human Services, A.A.",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "Professional Communication, A.A.",
+    "Discipline Cluster": "Languages / Communication"
+  },
+  {
+    "Program": "Liberal Studies, A.A. - Allied Health Concentration",
+    "Discipline Cluster": "Health professions / Nursing / Medicine"
+  },
+  {
+    "Program": "Liberal Studies, A.A. - Business Administration Concentration",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Liberal Studies, A.A. - Creative Writing Concentration",
+    "Discipline Cluster": "Languages / Communication"
+  },
+  {
+    "Program": "Liberal Studies, A.A. - General Concentration",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Liberal Studies, A.A. - Science and Mathematics Concentration",
+    "Discipline Cluster": "Mathematics / Statistics / Economics"
+  },
+  {
+    "Program": "Special Education Paraprofessional, A.A.",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Medical Laboratory Technology, A.S.",
+    "Discipline Cluster": "Health professions / Nursing / Medicine"
+  },
+  {
+    "Program": "Physical Therapist Assistant, A.S.",
+    "Discipline Cluster": "Health professions / Nursing / Medicine"
+  },
+  {
+    "Program": "Drug Policy and Intervention Certificate",
+    "Discipline Cluster": "Criminal justice / Legal studies"
+  },
+  {
+    "Program": "Energy Development & Policy Certificate",
+    "Discipline Cluster": "Public policy / Public health"
+  },
+  {
+    "Program": "Gerontology Certificate",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "GIS (Geographic Information Systems) Certificate",
+    "Discipline Cluster": "Computer science / Information systems"
+  },
+  {
+    "Program": "Graduate Certificate in Special Education",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Graphic Design Certificate",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Human Services Assistant Certificate",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "Mental Health Rehabilitation Technician/Community Certification (MHRT/C)",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "Project Management Certificate",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Women’s Studies Certificate",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Graduate Certificate in Entrepreneurship",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Communication",
+    "Discipline Cluster": "Languages / Communication"
+  },
+  {
+    "Program": "Graduate Certificate in Human Resource Management",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Finance",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Supply Chain Management",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Project Management",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Business Intelligence",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Corporate Social Responsibility",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Global Business Management",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Graduate Certificate in Healthcare Management",
+    "Discipline Cluster": "Healthcare administration / Health systems management"
+  },
+  {
+    "Program": "Accounting Minor",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Art Minor",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Athletics Coaching Minor",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Biology Minor",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Business Administration Minor",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Chemistry Minor",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Community Health Minor",
+    "Discipline Cluster": "Public policy / Public health"
+  },
+  {
+    "Program": "Computer Science Minor",
+    "Discipline Cluster": "Computer science / Information systems"
+  },
+  {
+    "Program": "Criminal Justice Minor",
+    "Discipline Cluster": "Criminal justice / Legal studies"
+  },
+  {
+    "Program": "Cybersecurity Minor",
+    "Discipline Cluster": "Cybersecurity / Information assurance"
+  },
+  {
+    "Program": "Early Childhood Education Minor",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Educational Studies Minor",
+    "Discipline Cluster": "Teacher education"
+  },
+  {
+    "Program": "Energy Development & Policy Minor",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "English and Media Studies Minor",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Environmental Studies Minor",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Film Studies Minor",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "French Minor",
+    "Discipline Cluster": "Languages / Communication"
+  },
+  {
+    "Program": "Geology Minor",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Graphic Design Minor",
+    "Discipline Cluster": "Arts / Design / Architecture / Media"
+  },
+  {
+    "Program": "Healthcare Administration Minor",
+    "Discipline Cluster": "Healthcare administration / Health systems management"
+  },
+  {
+    "Program": "Health & Wellness Minor",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "History Minor",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Humanities Minor",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Human Services Minor",
+    "Discipline Cluster": "Social work / Counseling / Human services"
+  },
+  {
+    "Program": "International Studies Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Management Information Systems Minor",
+    "Discipline Cluster": "Computer science / Information systems"
+  },
+  {
+    "Program": "Management Minor",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Mathematics Minor",
+    "Discipline Cluster": "Mathematics / Statistics / Economics"
+  },
+  {
+    "Program": "Media and Cultural Studies Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Philosophy Minor",
+    "Discipline Cluster": "Humanities / History / Literature / Philosophy"
+  },
+  {
+    "Program": "Physical Education Minor",
+    "Discipline Cluster": "Exercise science / Kinesiology / Athletic training"
+  },
+  {
+    "Program": "Physical Science Minor",
+    "Discipline Cluster": "Natural sciences / Lab sciences"
+  },
+  {
+    "Program": "Political Science Minor",
+    "Discipline Cluster": "Public policy / Public health"
+  },
+  {
+    "Program": "Pre-Law Studies Minor",
+    "Discipline Cluster": "Criminal justice / Legal studies"
+  },
+  {
+    "Program": "Project Management Minor",
+    "Discipline Cluster": "Business / Management / Entrepreneurship"
+  },
+  {
+    "Program": "Psychology Minor",
+    "Discipline Cluster": "Psychology / Behavioral science"
+  },
+  {
+    "Program": "Recreation/Leisure Minor",
+    "Discipline Cluster": "Tourism / Hospitality / Event management"
+  },
+  {
+    "Program": "Social Studies Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Sociology Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Sustainable Agriculture Minor",
+    "Discipline Cluster": "Agriculture / Environmental science / Sustainability"
+  },
+  {
+    "Program": "Tourism, Hospitality and Outdoor Recreation (THOR) Minor",
+    "Discipline Cluster": "Tourism / Hospitality / Event management"
+  },
+  {
+    "Program": "Wabanaki Studies Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Women’s Studies Minor",
+    "Discipline Cluster": "Sociology / Gender studies / Interdisciplinary social inquiry"
+  },
+  {
+    "Program": "Writing Minor",
+    "Discipline Cluster": "Languages / Communication"
+  }
+]
