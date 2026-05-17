@@ -51,52 +51,58 @@ function getAllCourses() {
 }
 
 function getCourseContext(courseId) {
-  var allCourses = dbGetAll('courses');
-  var course = null;
-  for (var i = 0; i < allCourses.length; i++) {
-    if (String(allCourses[i].id).trim() === String(courseId).trim()) {
-      course = allCourses[i];
-      break;
+  try {
+    var allCourses = dbGetAll('courses');
+    var course = null;
+    for (var i = 0; i < allCourses.length; i++) {
+      if (String(allCourses[i].id).trim() === String(courseId).trim()) {
+        course = allCourses[i];
+        break;
+      }
     }
-  }
-  if (!course) {
-    // Return diagnostic info instead of null so the UI can show a useful message
+    if (!course) {
+      return {
+        _error: true,
+        message: 'Course "' + courseId + '" not found. Courses table has ' + allCourses.length +
+                 ' rows. First 3 IDs: [' +
+                 allCourses.slice(0, 3).map(function(c) { return JSON.stringify(c.id); }).join(', ') + ']'
+      };
+    }
+
+    var cpRows = dbWhere('course_programs', function(cp) { return cp.course_id === courseId; });
+    var programIds = cpRows.map(function(cp) { return cp.program_id; });
+    var programs = dbWhere('programs', function(p) { return programIds.indexOf(p.id) !== -1; });
+
+    var clos = dbWhere('clos', function(c) {
+      return c.course_id === courseId && c.status === 'active';
+    });
+
+    var gloMappings = dbWhere('glo_course_mappings', function(m) { return m.course_id === courseId; });
+    var gloIds = gloMappings.map(function(m) { return m.glo_id; });
+    var glos = dbWhere('glos', function(g) { return gloIds.indexOf(g.id) !== -1; });
+
+    var plosMap = {};
+    programs.forEach(function(p) {
+      plosMap[p.id] = {
+        program: p,
+        plos: dbWhere('plos', function(pl) { return pl.program_id === p.id && pl.status === 'active'; })
+      };
+    });
+
+    return {
+      course: course,
+      programs: programs,
+      clos: clos,
+      glos: glos,
+      plosMap: plosMap,
+    };
+  } catch(e) {
     return {
       _error: true,
-      message: 'Course "' + courseId + '" not found. Courses table has ' + allCourses.length +
-               ' rows. First 3 IDs: [' +
-               allCourses.slice(0, 3).map(function(c) { return JSON.stringify(c.id); }).join(', ') + ']'
+      message: 'Exception in getCourseContext: ' + e.message + ' | courseId was: ' + courseId
     };
   }
-
-  var cpRows = dbWhere('course_programs', function(cp) { return cp.course_id === courseId; });
-  var programIds = cpRows.map(function(cp) { return cp.program_id; });
-  var programs = dbWhere('programs', function(p) { return programIds.indexOf(p.id) !== -1; });
-
-  var clos = dbWhere('clos', function(c) {
-    return c.course_id === courseId && c.status === 'active';
-  });
-
-  var gloMappings = dbWhere('glo_course_mappings', function(m) { return m.course_id === courseId; });
-  var gloIds = gloMappings.map(function(m) { return m.glo_id; });
-  var glos = dbWhere('glos', function(g) { return gloIds.indexOf(g.id) !== -1; });
-
-  // PLOs for each program
-  var plosMap = {};
-  programs.forEach(function(p) {
-    plosMap[p.id] = {
-      program: p,
-      plos: dbWhere('plos', function(pl) { return pl.program_id === p.id && pl.status === 'active'; })
-    };
-  });
-
-  return {
-    course: course,
-    programs: programs,
-    clos: clos,
-    glos: glos,
-    plosMap: plosMap,
-  };
+}
 }
 
 // ─── recommendation engine ────────────────────────────────────────────────────
