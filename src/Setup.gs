@@ -45,6 +45,27 @@ function setupAll() {
   Logger.log('Setup complete.');
 }
 
+/**
+ * Wipe all data rows (keep headers) from every table sheet, then re-seed.
+ * Run this if setupAll() was accidentally run more than once and data is doubled.
+ */
+function resetAndReseed() {
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  Object.keys(TABLE_SCHEMAS).forEach(function(name) {
+    var sheet = ss.getSheetByName(name);
+    if (!sheet) return;
+    var lastRow = sheet.getLastRow();
+    if (lastRow > 1) {
+      sheet.deleteRows(2, lastRow - 1);
+      Logger.log('Cleared ' + (lastRow - 1) + ' rows from ' + name);
+    }
+  });
+  Logger.log('All tables cleared. Re-seeding...');
+  _importFrameworkData(ss);
+  _seedDemoData();
+  Logger.log('Reset complete.');
+}
+
 function _createSheets(ss) {
   Object.keys(TABLE_SCHEMAS).forEach(function(name) {
     var existing = ss.getSheetByName(name);

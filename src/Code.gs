@@ -51,8 +51,23 @@ function getAllCourses() {
 }
 
 function getCourseContext(courseId) {
-  var course = dbFindOne('courses', function(c) { return c.id === courseId; });
-  if (!course) return null;
+  var allCourses = dbGetAll('courses');
+  var course = null;
+  for (var i = 0; i < allCourses.length; i++) {
+    if (String(allCourses[i].id).trim() === String(courseId).trim()) {
+      course = allCourses[i];
+      break;
+    }
+  }
+  if (!course) {
+    // Return diagnostic info instead of null so the UI can show a useful message
+    return {
+      _error: true,
+      message: 'Course "' + courseId + '" not found. Courses table has ' + allCourses.length +
+               ' rows. First 3 IDs: [' +
+               allCourses.slice(0, 3).map(function(c) { return JSON.stringify(c.id); }).join(', ') + ']'
+    };
+  }
 
   var cpRows = dbWhere('course_programs', function(cp) { return cp.course_id === courseId; });
   var programIds = cpRows.map(function(cp) { return cp.program_id; });

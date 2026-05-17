@@ -244,7 +244,11 @@
         .then(ctx => {
           setLoadingNext(false);
           if (!ctx) {
-            setNextError('Could not load course data. The database may not be set up yet — please run setupAll() in the Apps Script editor and try again.');
+            setNextError('Server returned null. Please run setupAll() in the Apps Script editor and try again.');
+            return;
+          }
+          if (ctx._error) {
+            setNextError('Diagnostic: ' + ctx.message);
             return;
           }
           onCourseSelected(ctx);
