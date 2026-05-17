@@ -51,7 +51,48 @@ function getAllCourses() {
 }
 
 function getCourseContext(courseId) {
-  return { _ping: true, received: courseId };
+  try {
+    var allCourses = dbGetAll('courses');
+    var course = null;
+    for (var i = 0; i < allCourses.length; i++) {
+      if (String(allCourses[i].id).trim() === String(courseId).trim()) {
+        course = allCourses[i];
+        break;
+      }
+    }
+    if (!course) {
+      return { _error: true, message: 'Course not found: ' + courseId + ' (checked ' + allCourses.length + ' rows)' };
+    }
+
+    var cpRows = dbWhere('course_programs', function(cp) { return cp.course_id === courseId; });
+    var programIds = cpRows.map(function(cp) { return cp.program_id; });
+    var programs = dbWhere('programs', function(p) { return programIds.indexOf(p.id) !== -1; });
+
+    var clos = dbWhere('clos', function(c) {
+      return c.course_id === courseId && c.status === 'active';
+    });
+
+    var gloMappings = dbWhere('glo_course_mappings', function(m) { return m.course_id === courseId; });
+    var gloIds = gloMappings.map(function(m) { return m.glo_id; });
+    var glos = dbWhere('glos', function(g) { return gloIds.indexOf(g.id) !== -1; });
+
+    var programsWithPlos = programs.map(function(p) {
+      return {
+        program: p,
+        plos: dbWhere('plos', function(pl) { return pl.program_id === p.id && pl.status === 'active'; })
+      };
+    });
+
+    return {
+      course: course,
+      programs: programs,
+      clos: clos,
+      glos: glos,
+      programsWithPlos: programsWithPlos
+    };
+  } catch(e) {
+    return { _error: true, message: 'Exception in getCourseContext: ' + e.message };
+  }
 }
 
 // ─── recommendation engine ────────────────────────────────────────────────────

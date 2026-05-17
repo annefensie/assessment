@@ -307,9 +307,9 @@
   function StepOutcome({ courseCtx, glos, outcomeText, onOutcomeChange, onNext, onBack }) {
     const [type, setType] = useState('');
     const [text, setText] = useState(outcomeText || '');
-    const { course, clos, plosMap, glos: courseGlos } = courseCtx || {};
+    const { course, clos, programsWithPlos, glos: courseGlos } = courseCtx || {};
 
-    const allPrograms = Object.values(plosMap || {});
+    const allPrograms = programsWithPlos || [];
 
     function pick(t, txt) { setType(t); setText(txt); onOutcomeChange(txt); }
 
