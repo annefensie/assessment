@@ -77,22 +77,36 @@ function getCourseContext(courseId) {
     var glos = dbWhere('glos', function(g) { return gloIds.indexOf(g.id) !== -1; });
 
     var programsWithPlos = programs.map(function(p) {
-      return {
-        program: p,
-        plos: dbWhere('plos', function(pl) { return pl.program_id === p.id && pl.status === 'active'; })
-      };
+      var plos = dbWhere('plos', function(pl) { return pl.program_id === p.id && pl.status === 'active'; });
+      return { program: p, plos: plos };
     });
 
-    return {
+    var result = {
       course: course,
       programs: programs,
       clos: clos,
       glos: glos,
       programsWithPlos: programsWithPlos
     };
+
+    // Force JSON round-trip: converts Date objects → ISO strings and removes
+    // any non-serializable values that cause google.script.run to return null.
+    return JSON.parse(JSON.stringify(result));
   } catch(e) {
-    return { _error: true, message: 'Exception in getCourseContext: ' + e.message };
+    return { _error: true, message: 'Exception in getCourseContext: ' + e.message + ' | stack: ' + e.stack };
   }
+}
+
+// ─── server-side diagnostic (run directly in Apps Script editor) ──────────────
+
+function testCourseContext() {
+  var courses = dbGetAll('courses');
+  Logger.log('Total courses: ' + courses.length);
+  if (courses.length === 0) { Logger.log('No courses found — run resetAndReseed()'); return; }
+  var id = courses[0].id;
+  Logger.log('Testing with course id: ' + id);
+  var result = getCourseContext(id);
+  Logger.log(JSON.stringify(result));
 }
 
 // ─── recommendation engine ────────────────────────────────────────────────────
