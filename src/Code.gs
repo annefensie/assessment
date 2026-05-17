@@ -103,7 +103,6 @@ function getCourseContext(courseId) {
     };
   }
 }
-}
 
 // ─── recommendation engine ────────────────────────────────────────────────────
 
