@@ -32,15 +32,104 @@ function refreshFrameworkCache() {
 // ─── load from sheets ────────────────────────────────────────────────────────
 
 function _loadFrameworkFromSheets() {
+  // Sheet headers are snake_case; map back to the Excel column names that the
+  // rest of Framework.gs uses so both code paths see the same key names.
+  var rawVerbs       = dbGetAll('framework_verbs');
+  var rawBehaviors   = dbGetAll('framework_behaviors');
+  var rawTasks       = dbGetAll('framework_task_types');
+  var rawDeliverables = dbGetAll('framework_deliverables');
+  var rawDisciplines = dbGetAll('framework_disciplines');
+  var rawAI          = dbGetAll('framework_ai_resistance_features');
+  var rawSources     = dbGetAll('framework_sources');
+
   return {
-    verbs: dbGetAll('framework_verbs'),
-    behaviors: dbGetAll('framework_behaviors'),
-    tasks: dbGetAll('framework_task_types'),
-    deliverables: dbGetAll('framework_deliverables'),
-    disciplines: dbGetAll('framework_disciplines'),
-    aiResistance: dbGetAll('framework_ai_resistance_features'),
-    sources: dbGetAll('framework_sources'),
-    programDisciplines: dbGetAll('program_disciplines'),
+    verbs: rawVerbs.map(function(v) {
+      return {
+        'Verb': v.verb || '',
+        'Most Likely Behavior': v.most_likely_behavior || '',
+        'Internal / External (from Most Likely Behavior)': v.internal_external || '',
+        'Independent / Interactive (from Most Likely Behavior)': v.independent_interactive || '',
+        'Preferred Context (from Most Likely Behavior)': v.preferred_context || '',
+        'Preferred Stimulus Task Type (from Most Likely Behavior)': v.preferred_task_type || '',
+        'Other Possible Stimulus Task Type (from Most Likely Behavior)': v.other_task_types || '',
+        'Learner choice of stimulus (from Most Likely Behavior)': v.learner_choice_task || '',
+        'Preferred Deliverable Task Type (from Most Likely Behavior)': v.preferred_deliverable || '',
+        'Other Possible Deliverable Task Type (from Most Likely Behavior)': v.other_deliverables || '',
+        'Learner choice of deliverable (from Most Likely Behavior)': v.learner_choice_deliverable || '',
+      };
+    }),
+    behaviors: rawBehaviors.map(function(b) {
+      return {
+        'Behavior': b.behavior || '',
+        'Definition / Construct': b.definition || '',
+        'Internal / External': b.internal_external || '',
+        'Independent / Interactive': b.independent_interactive || '',
+        'Program Preferred Context': b.preferred_context || '',
+        'Preferred Task Type': b.preferred_task_type || '',
+        'Other Possible Task Type': b.other_task_types || '',
+        'Learner choice of task': b.learner_choice_task || '',
+        'Preferred Deliverable Task Type': b.preferred_deliverable || '',
+        'Other Possible Deliverable Task Type': b.other_deliverables || '',
+        'Learner choice of deliverable': b.learner_choice_deliverable || '',
+      };
+    }),
+    tasks: rawTasks.map(function(t) {
+      return {
+        'Task Type': t.task_type || '',
+        'Description': t.description || '',
+        'Behaviors': t.behaviors || '',
+        'Format / Modality': t.format_modality || '',
+        'Learner choice in modality?': t.learner_choice_modality || '',
+        'AI-resistance affordance': t.ai_resistance_affordance || '',
+        'Recommended scoring evidence': t.recommended_scoring_evidence || '',
+        'Discipline Affinity': t.discipline_affinity || '',
+      };
+    }),
+    deliverables: rawDeliverables.map(function(d) {
+      return {
+        'Name': d.name || '',
+        'Description': d.description || '',
+        'Modality': d.modality || '',
+        'Learner choice in modality?': d.learner_choice_modality || '',
+        'AI-resistance affordance': d.ai_resistance_affordance || '',
+      };
+    }),
+    disciplines: rawDisciplines.map(function(d) {
+      return {
+        'Discipline / Program Cluster': d.discipline_cluster || '',
+        'Particularly Appropriate Task Types': d.appropriate_task_types || '',
+        'Recommended Deliverables': d.recommended_deliverables || '',
+        'High-value Verbs to Add / Emphasize': d.high_value_verbs || '',
+        'Why this fit is strong': d.why_fit_strong || '',
+        'AI-resistant design moves': d.ai_resistant_design_moves || '',
+        'Primary Source Keys': d.source_keys || '',
+        'Source URLs': d.source_urls || '',
+      };
+    }),
+    aiResistance: rawAI.map(function(f) {
+      return {
+        'AI-resistant Design Feature': f.feature_name || '',
+        'Why it helps validity/security': f.why_helps || '',
+        'Works best for': f.works_best_for || '',
+        'Example implementation': f.example_implementation || '',
+        'Caution': f.caution || '',
+        'Source Keys': f.source_keys || '',
+        'Source URLs': f.source_urls || '',
+      };
+    }),
+    sources: rawSources.map(function(s) {
+      return {
+        'Source Key': s.source_key || '',
+        'Full Reference': s.full_reference || '',
+        'Assessment Implication': s.assessment_implication || '',
+        'URL': s.url || '',
+      };
+    }),
+    // The program_disciplines sheet stores program_id and discipline_cluster_id
+    // (not names), so it can't be used for name-based lookups. Fall back to the
+    // embedded data which preserves the original "Program" / "Discipline Cluster"
+    // name columns that getDisciplineForProgram() needs.
+    programDisciplines: FRAMEWORK_DATA.PROGRAM_DISCIPLINES,
   };
 }
 
