@@ -120,21 +120,41 @@
   // ─── Main Flow ────────────────────────────────────────────────────────────
   const STEPS = ['Outcomes', 'Recommendations', 'Prompt'];
 
+  const DISCIPLINE_CLUSTERS = [
+    'Agriculture / Environmental science / Sustainability',
+    'Arts / Design / Architecture / Media',
+    'Business / Management / Entrepreneurship',
+    'Computer science / Information systems',
+    'Criminal justice / Legal studies',
+    'Cybersecurity / Information assurance',
+    'Engineering / Technology',
+    'Exercise science / Kinesiology / Athletic training',
+    'Health professions / Nursing / Medicine',
+    'Healthcare administration / Health systems management',
+    'Humanities / History / Literature / Philosophy',
+    'Languages / Communication',
+    'Library / Information / Media literacy',
+    'Mathematics / Statistics / Economics',
+    'Natural sciences / Lab sciences',
+    'Psychology / Behavioral science',
+    'Public policy / Public health',
+    'Social work / Counseling / Human services',
+    'Sociology / Gender studies / Interdisciplinary social inquiry',
+    'Teacher education',
+    'Tourism / Hospitality / Event management',
+  ];
+
   function MainFlow({ programs, glos, user }) {
     const [step, setStep] = useState(0);
-    const [selectedProgramId, setSelectedProgramId] = useState('');
+    const [disciplineName, setDisciplineName] = useState('');
     const [outcomes, setOutcomes] = useState(['']);
     const [recommendations, setRecommendations] = useState(null);
     const [promptText, setPromptText] = useState('');
     const [saved, setSaved] = useState(false);
     const [saveMsg, setSaveMsg] = useState('');
 
-    const programName = selectedProgramId
-      ? (programs.find(p => p.id === selectedProgramId) || {}).name || ''
-      : '';
-
     function reset() {
-      setStep(0); setSelectedProgramId(''); setOutcomes(['']);
+      setStep(0); setDisciplineName(''); setOutcomes(['']);
       setRecommendations(null); setPromptText(''); setSaved(false); setSaveMsg('');
     }
 
@@ -144,9 +164,8 @@
         <div className="mt-6">
           {step === 0 && (
             <StepOutcome
-              programs={programs}
-              selectedProgramId={selectedProgramId}
-              onSelectProgram={setSelectedProgramId}
+              disciplineName={disciplineName}
+              onSelectDiscipline={setDisciplineName}
               outcomes={outcomes}
               onOutcomesChange={setOutcomes}
               onNext={(texts) => { setOutcomes(texts); setStep(1); }}
@@ -155,10 +174,10 @@
           {step === 1 && (
             <StepRecommendation
               outcomes={outcomes}
-              programName={programName}
+              programName={disciplineName}
               onNext={(recs, taskType, deliv) => {
                 setRecommendations(recs);
-                gsr('buildPromptMulti', '', '', '', programName, outcomes, recs, taskType, deliv)
+                gsr('buildPromptMulti', '', '', '', disciplineName, outcomes, recs, taskType, deliv)
                   .then(pt => { setPromptText(pt); setStep(2); });
               }}
               onBack={() => setStep(0)}
@@ -287,7 +306,7 @@
   }
 
   // ─── Step 1: Outcome Entry ────────────────────────────────────────────────
-  function StepOutcome({ programs, selectedProgramId, onSelectProgram, outcomes, onOutcomesChange, onNext }) {
+  function StepOutcome({ disciplineName, onSelectDiscipline, outcomes, onOutcomesChange, onNext }) {
     function update(i, val) {
       onOutcomesChange(outcomes.map((o, idx) => idx === i ? val : o));
     }
@@ -304,12 +323,12 @@
 
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              Program <span className="font-normal normal-case text-gray-400">(optional — improves discipline-specific recommendations)</span>
+              Discipline <span className="font-normal normal-case text-gray-400">(optional — improves discipline-specific recommendations)</span>
             </label>
             <select className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              value={selectedProgramId} onChange={e => onSelectProgram(e.target.value)}>
-              <option value="">— Select a program —</option>
-              {programs.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+              value={disciplineName} onChange={e => onSelectDiscipline(e.target.value)}>
+              <option value="">— Select a discipline cluster —</option>
+              {DISCIPLINE_CLUSTERS.map(d => <option key={d} value={d}>{d}</option>)}
             </select>
           </div>
 

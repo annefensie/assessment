@@ -316,14 +316,19 @@ function getDeliverableDetail(delivName) {
 
 function getDisciplineForProgram(programName) {
   var fw = _fw();
+  // First try program→cluster mapping
   var pd = fw.programDisciplines.find(function(r) {
     return (r['Program'] || '').trim().toLowerCase() === (programName || '').trim().toLowerCase();
   });
-  if (!pd) return null;
-  var clusterName = pd['Discipline Cluster'] || pd['discipline_cluster'] || '';
-  return fw.disciplines.find(function(d) {
-    return (d['Discipline / Program Cluster'] || d['discipline_cluster'] || '').trim() === clusterName.trim();
-  }) || null;
+  if (pd) {
+    var clusterName = pd['Discipline Cluster'] || pd['discipline_cluster'] || '';
+    var match = fw.disciplines.find(function(d) {
+      return (d['Discipline / Program Cluster'] || d['discipline_cluster'] || '').trim() === clusterName.trim();
+    });
+    if (match) return match;
+  }
+  // Fall back to direct discipline cluster name match
+  return getDisciplineByName(programName);
 }
 
 function getDisciplineByName(clusterName) {
