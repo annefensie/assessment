@@ -110,6 +110,99 @@ function generatePrompt(params) {
 }
 
 /**
+ * Generates a combined prompt for multiple outcomes with a synthesized assessment design.
+ */
+function generatePromptMulti(params) {
+  // params: { courseCode, courseTitle, courseDescription, programName,
+  //           outcomes[], recommendations[], taskType, deliverable }
+  var outcomes = params.outcomes || [];
+  var recs = params.recommendations || [];
+  var taskType = params.taskType || '';
+  var deliverable = params.deliverable || '';
+
+  var outcomeLines = outcomes.map(function(o, i) {
+    var r = recs[i];
+    if (!r || r.status !== 'complete') return (i + 1) + '. ' + o;
+    var paired = r.paired_external_behavior ? ' [paired with ' + r.paired_external_behavior + ']' : '';
+    return (i + 1) + '. ' + o + '\n   → Behavior: ' + r.primary_behavior + ' (' + r.internal_external + ')' + paired;
+  }).join('\n');
+
+  var behaviorLines = recs.filter(function(r) { return r && r.status === 'complete'; }).map(function(r, i) {
+    var pairedNote = r.paired_external_behavior
+      ? '\n  Paired with: ' + r.paired_external_behavior + ' — ' + (r.paired_external_behavior_definition || '')
+      : '';
+    return 'Outcome ' + (i + 1) + ': ' + r.primary_behavior +
+      '\n  Definition: ' + r.behavior_definition +
+      '\n  Internal/External: ' + r.internal_external +
+      '\n  Independent/Interactive: ' + r.independent_interactive +
+      pairedNote;
+  }).join('\n\n');
+
+  // Collect AI resistance features (unique by name)
+  var seen = {};
+  var aiFeatures = [];
+  recs.forEach(function(r) {
+    if (!r || !r.selected_ai_resistance_features) return;
+    r.selected_ai_resistance_features.forEach(function(f) {
+      if (!seen[f.name]) {
+        seen[f.name] = true;
+        aiFeatures.push(f);
+      }
+    });
+  });
+
+  var aiFeaturesSection = '';
+  if (aiFeatures.length > 0) {
+    var featureLines = aiFeatures.map(function(f) {
+      return '- ' + f.name + ': ' + f.why +
+        '\n  Example: ' + f.example +
+        '\n  Caution: ' + f.caution;
+    }).join('\n');
+    aiFeaturesSection = [
+      '',
+      '--- CROSS-CUTTING AI-RESISTANT DESIGN FEATURES ---',
+      featureLines,
+    ].join('\n');
+  }
+
+  var prompt = [
+    'You are helping a college faculty member design a single integrated assessment that measures multiple learning outcomes.',
+    'The faculty member has used a research-based framework to classify each outcome and determine the appropriate assessment design.',
+    "Your job is to draft the actual assessment artifact that addresses ALL outcomes simultaneously.",
+    '',
+    '--- CONTEXT ---',
+    'Institution: University of Maine at Presque Isle',
+    'Course: ' + (params.courseCode || '') + ' ' + (params.courseTitle || ''),
+    'Course description: ' + (params.courseDescription || ''),
+    'Program: ' + (params.programName || 'Not specified'),
+    '',
+    '--- LEARNING OUTCOMES (all must be addressed) ---',
+    outcomeLines,
+    '',
+    '--- FRAMEWORK CLASSIFICATION BY OUTCOME ---',
+    behaviorLines,
+    '',
+    '--- SYNTHESIZED ASSESSMENT DESIGN ---',
+    'Stimulus task type: ' + taskType,
+    'Deliverable: ' + deliverable,
+    '',
+    'This task type and deliverable were selected because they best serve the full set of behaviors across all outcomes.',
+    aiFeaturesSection,
+    '',
+    '--- DRAFT THE FOLLOWING ---',
+    '1. THE STIMULUS: the ' + (taskType.toLowerCase() || 'task') + ' text, parameters, or setup — make it concrete, discipline-specific, and authentic to the course.',
+    '2. THE DELIVERABLE SPECIFICATION: exactly what the student produces, including format, length, and submission requirements.',
+    '3. THE RUBRIC: 3–5 criteria that collectively address all ' + outcomes.length + ' outcomes, with descriptors for Exemplary, Proficient, Developing, and Emerging evidence. Label which outcome(s) each criterion primarily addresses.',
+    '4. NOTES ON EVIDENCE: what specifically demonstrates each targeted behavior at Exemplary and Proficient levels vs. what would be insufficient at Developing and Emerging levels.',
+    '5. ACCESSIBILITY ALTERNATIVES: if the recommended modality creates barriers for any students, propose at least one alternative format that elicits equivalent evidence for all outcomes.',
+    '',
+    "Make the assessment concrete, discipline-specific, and authentic to all outcomes above. Frame AI-resistance as supporting *valid evidence of learning*, not as surveillance or AI detection. If any framework classification seems mismatched to its outcome, note the concern and offer an alternative.",
+  ].join('\n');
+
+  return prompt;
+}
+
+/**
  * Save a prompt to the prompts table.
  */
 function savePrompt(owner, courseId, cloId, outcomeText, recommendation, promptText, notes) {

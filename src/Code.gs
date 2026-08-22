@@ -144,6 +144,19 @@ function buildPrompt(courseCode, courseTitle, courseDescription, programName, ou
   });
 }
 
+function buildPromptMulti(courseCode, courseTitle, courseDescription, programName, outcomes, recommendations, taskType, deliverable) {
+  return generatePromptMulti({
+    courseCode: courseCode,
+    courseTitle: courseTitle,
+    courseDescription: courseDescription,
+    programName: programName,
+    outcomes: outcomes,
+    recommendations: recommendations,
+    taskType: taskType,
+    deliverable: deliverable
+  });
+}
+
 function savePromptRecord(courseId, cloId, outcomeText, recommendation, promptText, notes) {
   var email = _currentEmail();
   return savePrompt(email, courseId, cloId, outcomeText, recommendation, promptText, notes);

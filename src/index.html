@@ -124,9 +124,9 @@
     const [step, setStep] = useState(0);
     const [courseCtx, setCourseCtx] = useState(null);
     const [selectedProgramId, setSelectedProgramId] = useState('');
-    const [outcomeText, setOutcomeText] = useState('');
-    const [selectedOutcomeType, setSelectedOutcomeType] = useState(''); // clo|glo|plo|custom
-    const [recommendation, setRecommendation] = useState(null);
+    const [outcomes, setOutcomes] = useState(['']);
+    const [recommendations, setRecommendations] = useState(null);
+    const [synthesized, setSynthesized] = useState({ taskType: '', deliverable: '' });
     const [promptText, setPromptText] = useState('');
     const [saved, setSaved] = useState(false);
     const [saveMsg, setSaveMsg] = useState('');
@@ -152,9 +152,9 @@
             courseCtx
               ? <StepOutcome
                   courseCtx={courseCtx}
-                  outcomeText={outcomeText}
-                  onOutcomeChange={setOutcomeText}
-                  onNext={(text, type) => { setOutcomeText(text); setSelectedOutcomeType(type); setStep(2); }}
+                  outcomes={outcomes}
+                  onOutcomesChange={setOutcomes}
+                  onNext={(texts) => { setOutcomes(texts); setStep(2); }}
                   onBack={() => setStep(0)}
                 />
               : <div className="card p-6 space-y-3">
@@ -164,16 +164,14 @@
           )}
           {step === 2 && (
             <StepRecommendation
-              outcomeText={outcomeText}
+              outcomes={outcomes}
               programName={programName}
               courseCtx={courseCtx}
-              recommendation={recommendation}
-              onRecommendation={setRecommendation}
-              onNext={(rec) => {
-                setRecommendation(rec);
-                // Build prompt eagerly
+              onNext={(recs, taskType, deliv) => {
+                setRecommendations(recs);
+                setSynthesized({ taskType, deliverable: deliv });
                 const c = courseCtx?.course;
-                gsr('buildPrompt', c?.code||'', c?.title||'', c?.description||'', programName, outcomeText, rec)
+                gsr('buildPromptMulti', c?.code||'', c?.title||'', c?.description||'', programName, outcomes, recs, taskType, deliv)
                   .then(pt => { setPromptText(pt); setStep(3); });
               }}
               onBack={() => setStep(1)}
@@ -185,14 +183,14 @@
               onPromptChange={setPromptText}
               onSave={() => {
                 const c = courseCtx?.course;
-                gsr('savePromptRecord', c?.id||'', null, outcomeText, recommendation, promptText, '')
+                gsr('savePromptRecord', c?.id||'', null, outcomes.join('\n'), recommendations?.[0]||null, promptText, '')
                   .then(() => { setSaved(true); setSaveMsg('Saved to your portfolio.'); })
                   .catch(e => setSaveMsg('Save failed: ' + (e.message||e)));
               }}
               saved={saved}
               saveMsg={saveMsg}
               onBack={() => setStep(2)}
-              onReset={() => { setStep(0); setCourseCtx(null); setRecommendation(null); setPromptText(''); setOutcomeText(''); setSaved(false); setSaveMsg(''); }}
+              onReset={() => { setStep(0); setCourseCtx(null); setRecommendations(null); setPromptText(''); setOutcomes(['']); setSaved(false); setSaveMsg(''); }}
             />
           )}
         </div>
@@ -302,49 +300,91 @@
     );
   }
 
-  // ─── Step 2: Outcome Entry ────────────────────────────────────────────────
-  function StepOutcome({ courseCtx, outcomeText, onOutcomeChange, onNext, onBack }) {
-    const [text, setText] = useState(outcomeText || '');
+  // ─── Step 2: Outcome Entry (multi) ───────────────────────────────────────
+  function StepOutcome({ courseCtx, outcomes, onOutcomesChange, onNext, onBack }) {
     const { course } = courseCtx || {};
 
-    function handleChange(val) { setText(val); onOutcomeChange(val); }
+    function update(i, val) {
+      onOutcomesChange(outcomes.map((o, idx) => idx === i ? val : o));
+    }
+    function add() { onOutcomesChange([...outcomes, '']); }
+    function remove(i) { onOutcomesChange(outcomes.filter((_, idx) => idx !== i)); }
+
+    const filled = outcomes.filter(o => o.trim());
 
     return (
       <div className="space-y-4">
         <div className="card p-6 space-y-4">
-          <SectionHeader step={2} title="Enter a learning outcome"
-            subtitle="Type or paste the outcome you want to design an assessment for." />
+          <SectionHeader step={2} title="Enter learning outcomes"
+            subtitle="Add every outcome this assessment will measure. The framework will generate a recommendation for each, then synthesize one integrated assessment." />
 
-          <div className="bg-gray-50 rounded p-3 text-sm space-y-1">
+          <div className="bg-gray-50 rounded p-3 text-sm">
             <div className="font-semibold text-gray-800">{course?.code} — {course?.title}</div>
-            <div className="text-gray-600 text-xs">{course?.description}</div>
+            <div className="text-gray-600 text-xs mt-0.5">{course?.description}</div>
           </div>
 
-          <textarea
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows={4}
-            placeholder="Students will be able to…"
-            value={text}
-            autoFocus
-            onChange={e => handleChange(e.target.value)}
-          />
+          <div className="space-y-3">
+            {outcomes.map((o, i) => (
+              <div key={i} className="flex gap-2 items-start">
+                <span className="text-xs font-semibold text-gray-400 mt-2.5 w-5 shrink-0 text-right">{i + 1}.</span>
+                <textarea
+                  className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={2}
+                  placeholder="Students will be able to…"
+                  value={o}
+                  autoFocus={i === 0 && !o}
+                  onChange={e => update(i, e.target.value)}
+                />
+                {outcomes.length > 1 && (
+                  <button className="mt-2 text-gray-300 hover:text-red-400 text-lg leading-none"
+                    title="Remove" onClick={() => remove(i)}>✕</button>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <button className="text-sm text-blue-600 hover:underline" onClick={add}>
+            + Add another outcome
+          </button>
         </div>
 
         <div className="flex gap-3">
           <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded hover:bg-gray-50" onClick={onBack}>← Back</button>
           <button className="px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40"
-            disabled={!text.trim()} onClick={() => onNext(text.trim(), 'custom')}>
-            Get Recommendation →
+            disabled={!filled.length} onClick={() => onNext(filled)}>
+            Get Recommendations →
           </button>
         </div>
       </div>
     );
   }
 
-// ─── Step 3: Recommendation ───────────────────────────────────────────────
-  function StepRecommendation({ outcomeText, programName, courseCtx, recommendation, onRecommendation, onNext, onBack }) {
+// ─── Step 3: Recommendation (multi-outcome) ──────────────────────────────
+
+  function synthesizeRecs(recs) {
+    var completed = recs.filter(function(r) { return r && r.status === 'complete'; });
+    if (!completed.length) return { taskType: '', deliverable: '' };
+    var taskCounts = {}, delivCounts = {};
+    completed.forEach(function(r) {
+      var t = r.recommended_task_type && r.recommended_task_type.name;
+      var d = r.recommended_deliverable && r.recommended_deliverable.name;
+      if (t) taskCounts[t] = (taskCounts[t] || 0) + 1;
+      if (d) delivCounts[d] = (delivCounts[d] || 0) + 1;
+    });
+    var bestTask = '', bestTaskCount = 0;
+    Object.keys(taskCounts).forEach(function(k) {
+      if (taskCounts[k] > bestTaskCount) { bestTask = k; bestTaskCount = taskCounts[k]; }
+    });
+    var bestDeliv = '', bestDelivCount = 0;
+    Object.keys(delivCounts).forEach(function(k) {
+      if (delivCounts[k] > bestDelivCount) { bestDeliv = k; bestDelivCount = delivCounts[k]; }
+    });
+    return { taskType: bestTask, deliverable: bestDeliv };
+  }
+
+  function OutcomeRecCard({ index, outcomeText, programName, onResolved }) {
     const [loading, setLoading] = useState(false);
-    const [rec, setRec] = useState(recommendation);
+    const [rec, setRec] = useState(null);
     const [forcedBehavior, setForcedBehavior] = useState('');
     const [forcedPaired, setForcedPaired] = useState('');
     const [error, setError] = useState('');
@@ -352,227 +392,195 @@
     function fetchRec(fb, fp) {
       setLoading(true); setError('');
       gsr('getRecommendation', outcomeText, programName, fb || null, fp || null)
-        .then(r => { setRec(r); setLoading(false); onRecommendation(r); })
+        .then(r => {
+          setRec(r); setLoading(false);
+          if (r && r.status === 'complete') onResolved(r);
+        })
         .catch(e => { setError(e.message || String(e)); setLoading(false); });
     }
 
-    useEffect(() => {
-      if (!rec) fetchRec('', '');
-    }, []);
+    useEffect(() => { fetchRec('', ''); }, []);
+
+    const header = (
+      <div>
+        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Outcome {index + 1}</div>
+        <div className="text-sm text-gray-700 italic">"{outcomeText}"</div>
+      </div>
+    );
 
     if (loading) return (
-      <div className="card p-8 flex flex-col items-center gap-4">
-        <div className="spinner" style={{width:36,height:36,borderWidth:4}} />
-        <div className="text-gray-600 text-sm">Analyzing outcome…</div>
+      <div className="border border-gray-200 rounded p-4 flex items-center gap-3 text-sm text-gray-500">
+        <div className="spinner" style={{width:16,height:16,borderWidth:2}} />
+        <span>Analyzing outcome {index + 1}…</span>
       </div>
     );
 
     if (error) return (
-      <div className="card p-6 space-y-3">
-        <div className="alert-warn p-3 rounded text-sm">{error}</div>
-        <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded" onClick={onBack}>← Back</button>
+      <div className="border border-red-200 rounded p-4 bg-red-50 space-y-2">
+        {header}
+        <div className="alert-warn p-2 rounded text-xs">{error}</div>
+        <button className="text-xs text-blue-600 underline" onClick={() => fetchRec(forcedBehavior, forcedPaired)}>Retry</button>
       </div>
     );
 
     if (!rec) return null;
 
-    // Disambiguation needed
-    if (rec.status === 'needs_verb_picker') {
-      return (
-        <div className="card p-6 space-y-4">
-          <SectionHeader step={3} title="Select a behavior" subtitle={rec.message} />
-          <VerbPicker groups={rec.verbPickerGroups} onSelect={b => { setForcedBehavior(b); fetchRec(b, ''); }} />
-          <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded" onClick={onBack}>← Back</button>
+    if (rec.status === 'needs_verb_picker') return (
+      <div className="border border-amber-200 rounded p-4 bg-amber-50 space-y-3">
+        {header}
+        <div className="text-sm text-amber-800">{rec.message}</div>
+        <VerbPicker groups={rec.verbPickerGroups} onSelect={b => { setForcedBehavior(b); fetchRec(b, ''); }} />
+      </div>
+    );
+
+    if (rec.status === 'needs_disambiguation') return (
+      <div className="border border-amber-200 rounded p-4 bg-amber-50 space-y-3">
+        {header}
+        <div className="text-sm text-amber-800">{rec.message}</div>
+        <div className="space-y-2">
+          {(rec.behaviors || []).map(b => (
+            <button key={b.name}
+              className="w-full text-left border border-gray-200 rounded p-3 bg-white hover:border-blue-400 hover:bg-blue-50 transition-colors"
+              onClick={() => { setForcedBehavior(b.name); fetchRec(b.name, ''); }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-semibold text-sm">{b.name}</span>
+                <span className={`tag ${b.internal_external === 'Internal' ? 'tag-int' : 'tag-ext'}`}>{b.internal_external}</span>
+              </div>
+              <div className="text-xs text-gray-600">{b.definition}</div>
+            </button>
+          ))}
         </div>
-      );
+      </div>
+    );
+
+    if (rec.status === 'needs_pairing') return (
+      <div className="border border-amber-200 rounded p-4 bg-amber-50 space-y-3">
+        {header}
+        <div className="text-sm text-amber-800">{rec.message}</div>
+        <div className="alert-info p-2 rounded text-sm">
+          <strong>{rec.primary_behavior?.name}</strong> — {rec.primary_behavior?.definition}
+        </div>
+        <div className="space-y-2">
+          {(rec.external_behaviors || []).map(b => (
+            <button key={b.name}
+              className="w-full text-left border border-gray-200 rounded p-3 bg-white hover:border-green-400 hover:bg-green-50 transition-colors"
+              onClick={() => { setForcedPaired(b.name); fetchRec(forcedBehavior || null, b.name); }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-semibold text-sm">{b.name}</span>
+                <span className="tag tag-ext">External</span>
+              </div>
+              <div className="text-xs text-gray-600">{b.definition}</div>
+              {b.preferred_task && <div className="text-xs text-gray-400 mt-1">Task: {b.preferred_task} · Deliverable: {b.preferred_deliverable}</div>}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+
+    // Complete
+    return (
+      <div className="border border-green-200 rounded p-4 bg-green-50 space-y-2">
+        {header}
+        <div className="flex flex-wrap gap-2 items-center text-sm">
+          <span className="font-semibold text-gray-900">{rec.primary_behavior}</span>
+          <span className={`tag ${rec.internal_external === 'Internal' ? 'tag-int' : 'tag-ext'}`}>{rec.internal_external}</span>
+          {rec.paired_external_behavior && (
+            <span className="text-gray-500 text-xs">↳ paired with <strong>{rec.paired_external_behavior}</strong></span>
+          )}
+        </div>
+        <div className="flex flex-wrap gap-4 text-xs text-gray-600">
+          {rec.recommended_task_type && <span><strong>Task:</strong> {rec.recommended_task_type.name}</span>}
+          {rec.recommended_deliverable && <span><strong>Deliverable:</strong> {rec.recommended_deliverable.name}</span>}
+        </div>
+        {rec.reasoning && <div className="text-xs text-gray-500 italic" dangerouslySetInnerHTML={{ __html: rec.reasoning }} />}
+      </div>
+    );
+  }
+
+  function StepRecommendation({ outcomes, programName, courseCtx, onNext, onBack }) {
+    const [recs, setRecs] = useState(outcomes.map(() => null));
+    const [taskType, setTaskType] = useState('');
+    const [deliverable, setDeliverable] = useState('');
+    const [generating, setGenerating] = useState(false);
+
+    function handleResolved(i, rec) {
+      setRecs(prev => {
+        const next = prev.map((r, idx) => idx === i ? rec : r);
+        const syn = synthesizeRecs(next);
+        setTaskType(tt => tt || syn.taskType);
+        setDeliverable(d => d || syn.deliverable);
+        return next;
+      });
     }
 
-    if (rec.status === 'needs_disambiguation') {
-      return (
-        <div className="card p-6 space-y-4">
-          <SectionHeader step={3} title="Clarify the behavior" subtitle={rec.message} />
-          <div className="text-sm text-gray-600">Verbs found: <strong>{rec.verbs?.join(', ')}</strong></div>
-          <div className="space-y-2">
-            {(rec.behaviors || []).map(b => (
-              <button key={b.name}
-                className="w-full text-left border border-gray-200 rounded p-3 hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                onClick={() => { setForcedBehavior(b.name); fetchRec(b.name, ''); }}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-sm">{b.name}</span>
-                  <span className={`tag ${b.internal_external === 'Internal' ? 'tag-int' : 'tag-ext'}`}>{b.internal_external}</span>
-                </div>
-                <div className="text-xs text-gray-600">{b.definition}</div>
-              </button>
-            ))}
-          </div>
-          <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded" onClick={onBack}>← Back</button>
-        </div>
-      );
-    }
+    const allResolved = recs.every(r => r && r.status === 'complete');
 
-    if (rec.status === 'needs_pairing') {
-      return (
-        <div className="card p-6 space-y-4">
-          <SectionHeader step={3} title="Pair with an external behavior" subtitle={rec.message} />
-          <div className="alert-info p-3 rounded text-sm">
-            <strong>{rec.primary_behavior?.name}</strong> — {rec.primary_behavior?.definition}
-          </div>
-          <div className="space-y-2">
-            {(rec.external_behaviors || []).map(b => (
-              <button key={b.name}
-                className="w-full text-left border border-gray-200 rounded p-3 hover:border-green-400 hover:bg-green-50 transition-colors"
-                onClick={() => { setForcedPaired(b.name); fetchRec(forcedBehavior || null, b.name); }}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-sm">{b.name}</span>
-                  <span className="tag tag-ext">External</span>
-                </div>
-                <div className="text-xs text-gray-600">{b.definition}</div>
-                {b.preferred_task && <div className="text-xs text-gray-400 mt-1">Task: {b.preferred_task} · Deliverable: {b.preferred_deliverable}</div>}
-              </button>
-            ))}
-          </div>
-          <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded" onClick={onBack}>← Back</button>
-        </div>
-      );
-    }
+    const taskOptions = [...new Set(recs.filter(Boolean).flatMap(r => [
+      r.recommended_task_type && r.recommended_task_type.name,
+      ...(r.alternative_task_types || [])
+    ].filter(Boolean)))];
 
-    // Full recommendation
+    const delivOptions = [...new Set(recs.filter(Boolean).flatMap(r => [
+      r.recommended_deliverable && r.recommended_deliverable.name,
+      ...(r.alternative_deliverables || [])
+    ].filter(Boolean)))];
+
     return (
       <div className="space-y-4">
-        <div className="card p-6 space-y-5">
-          <SectionHeader step={3} title="Framework Recommendation" />
-
-          {/* Outcome echo */}
-          <div className="bg-gray-50 rounded p-3 text-sm">
-            <span className="text-gray-500 text-xs uppercase font-semibold tracking-wide">Outcome: </span>
-            <span className="text-gray-800">"{outcomeText}"</span>
+        <div className="card p-6 space-y-4">
+          <SectionHeader step={3} title="Framework Recommendations"
+            subtitle="Each outcome is analyzed individually. Resolve any clarifications, then configure the synthesized assessment." />
+          <div className="space-y-3">
+            {outcomes.map((o, i) => (
+              <OutcomeRecCard key={i} index={i} outcomeText={o} programName={programName}
+                onResolved={rec => handleResolved(i, rec)} />
+            ))}
           </div>
+        </div>
 
-          {/* Reasoning */}
-          <div className="alert-info p-3 rounded text-sm" dangerouslySetInnerHTML={{ __html: rec.reasoning }} />
-
-          {/* Behavior */}
-          <div className="space-y-2">
-            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Behavior Classification</div>
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="font-semibold text-gray-900">{rec.primary_behavior}</span>
-              <span className={`tag ${rec.internal_external === 'Internal' ? 'tag-int' : 'tag-ext'}`}>{rec.internal_external}</span>
-              <span className={`tag ${rec.independent_interactive === 'Independent' ? 'tag-indp' : 'tag-intr'}`}>{rec.independent_interactive}</span>
-              {rec.preferred_context && <span className="tag" style={{background:'#f0fdf4',color:'#166534'}}>{rec.preferred_context}</span>}
+        {allResolved && (
+          <div className="card p-6 space-y-4">
+            <div className="text-sm font-semibold text-gray-800">Synthesized Assessment Design</div>
+            <div className="text-sm text-gray-600">
+              Based on all outcomes above, the framework recommends a single integrated assessment.
+              Adjust the task type and deliverable if needed.
             </div>
-            {rec.paired_external_behavior && (
-              <div className="text-sm text-gray-600">
-                ↳ Paired with <strong>{rec.paired_external_behavior}</strong> (External) — {rec.paired_external_behavior_definition}
-              </div>
-            )}
-            <div className="text-xs text-gray-500 italic">{rec.behavior_definition}</div>
-          </div>
-
-          {/* Task type */}
-          {rec.recommended_task_type && (
-            <RecommendationCard
-              label="Recommended Task Type"
-              name={rec.recommended_task_type.name}
-              description={rec.recommended_task_type.description}
-              aiAffordance={rec.recommended_task_type.ai_resistance_affordance}
-              extra={rec.recommended_task_type.recommended_scoring_evidence && (
-                <div className="text-xs text-gray-600 mt-1"><strong>Scoring evidence:</strong> {rec.recommended_task_type.recommended_scoring_evidence}</div>
-              )}
-              alternatives={rec.alternative_task_types}
-            />
-          )}
-
-          {/* Deliverable */}
-          {rec.recommended_deliverable && (
-            <RecommendationCard
-              label="Recommended Deliverable"
-              name={rec.recommended_deliverable.name}
-              description={rec.recommended_deliverable.description}
-              aiAffordance={rec.recommended_deliverable.ai_resistance_affordance}
-              alternatives={rec.alternative_deliverables}
-            />
-          )}
-
-          {/* Discipline cluster */}
-          {rec.discipline_cluster && (
-            <div className="border border-indigo-200 rounded p-4 bg-indigo-50 space-y-3">
-              <div className="flex items-center gap-2">
-                <div className="text-xs font-semibold text-indigo-700 uppercase tracking-wide">Discipline: {rec.discipline_cluster.name}</div>
-              </div>
-              <div className="text-sm text-indigo-900">{rec.discipline_cluster.why_fit_strong}</div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                <div>
-                  <div className="font-semibold text-indigo-700 mb-1">Appropriate task types</div>
-                  <ul className="list-disc list-inside text-indigo-800 space-y-0.5">
-                    {rec.discipline_cluster.appropriate_task_types.slice(0,5).map((t,i) => <li key={i}>{t}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <div className="font-semibold text-indigo-700 mb-1">Recommended deliverables</div>
-                  <ul className="list-disc list-inside text-indigo-800 space-y-0.5">
-                    {rec.discipline_cluster.recommended_deliverables.slice(0,5).map((d,i) => <li key={i}>{d}</li>)}
-                  </ul>
-                </div>
-              </div>
-              <div className="text-xs">
-                <span className="font-semibold text-indigo-700">AI-resistant design moves: </span>
-                <span className="text-indigo-800">{rec.discipline_cluster.ai_resistant_design_moves}</span>
-              </div>
-              {rec.discipline_cluster.high_value_verbs.length > 0 && (
-                <div className="flex flex-wrap gap-1">
-                  <span className="text-xs font-semibold text-indigo-700">High-value verbs: </span>
-                  {rec.discipline_cluster.high_value_verbs.map((v,i) => (
-                    <span key={i} className="text-xs bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">{v}</span>
+            <div className="space-y-4">
+              <div>
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Task Type</div>
+                <div className="flex flex-wrap gap-2">
+                  {taskOptions.map(t => (
+                    <button key={t}
+                      className={`px-3 py-1.5 rounded text-sm border transition-colors ${taskType === t ? 'bg-blue-700 text-white border-blue-700' : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400'}`}
+                      onClick={() => setTaskType(t)}>{t}</button>
                   ))}
                 </div>
-              )}
-            </div>
-          )}
-
-          {/* AI Resistance features */}
-          {rec.selected_ai_resistance_features?.length > 0 && (
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Cross-Cutting AI-Resistant Design Features</div>
-              <div className="space-y-2">
-                {rec.selected_ai_resistance_features.map((f, i) => (
-                  <details key={i} className="border border-gray-200 rounded">
-                    <summary className="px-3 py-2 text-sm font-medium cursor-pointer hover:bg-gray-50">
-                      {f.name} <span className="text-xs text-gray-500 font-normal ml-1">— {f.works_best_for}</span>
-                    </summary>
-                    <div className="px-3 pb-3 text-xs space-y-1 text-gray-700">
-                      <div><strong>Why it helps:</strong> {f.why}</div>
-                      <div><strong>Example:</strong> {f.example}</div>
-                      <div className="text-amber-700"><strong>Caution:</strong> {f.caution}</div>
-                    </div>
-                  </details>
-                ))}
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Deliverable</div>
+                <div className="flex flex-wrap gap-2">
+                  {delivOptions.map(d => (
+                    <button key={d}
+                      className={`px-3 py-1.5 rounded text-sm border transition-colors ${deliverable === d ? 'bg-blue-700 text-white border-blue-700' : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400'}`}
+                      onClick={() => setDeliverable(d)}>{d}</button>
+                  ))}
+                </div>
               </div>
             </div>
-          )}
-
-          {/* Citations */}
-          {rec.citations?.length > 0 && (
-            <div className="space-y-1">
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Research Basis</div>
-              <div className="space-y-1">
-                {rec.citations.map((c, i) => (
-                  <div key={i} className="text-xs text-gray-600">
-                    <span className="source-badge mr-1">{c.key}</span>
-                    {c.reference}
-                    {c.url && <a href={c.url} target="_blank" rel="noreferrer" className="ml-1 text-blue-500 underline">↗</a>}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="flex gap-3">
           <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded hover:bg-gray-50" onClick={onBack}>← Back</button>
-          <button className="px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800"
-            onClick={() => onNext(rec)}>
-            Generate Prompt →
-          </button>
+          {allResolved && (
+            <button
+              className="px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40 flex items-center gap-2"
+              disabled={!taskType || !deliverable || generating}
+              onClick={() => { setGenerating(true); onNext(recs, taskType, deliverable); }}>
+              {generating && <div className="spinner" style={{width:16,height:16,borderWidth:2}} />}
+              Generate Prompt →
+            </button>
+          )}
         </div>
       </div>
     );
