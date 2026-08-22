@@ -370,7 +370,7 @@
 // ─── Step 3: Recommendation (multi-outcome) ──────────────────────────────
 
   function synthesizeRecs(recs) {
-    var completed = recs.filter(function(r) { return r && r.status === 'complete'; });
+    var completed = recs.filter(function(r) { return r && r.status === 'ok'; });
     if (!completed.length) return { taskType: '', deliverable: '' };
     var taskCounts = {}, delivCounts = {};
     completed.forEach(function(r) {
@@ -402,7 +402,7 @@
       gsr('getRecommendation', outcomeText, programName, fb || null, fp || null)
         .then(r => {
           setRec(r); setLoading(false);
-          if (r && r.status === 'complete') onResolved(r);
+          if (r && r.status === 'ok') onResolved(r);
         })
         .catch(e => { setError(e.message || String(e)); setLoading(false); });
     }
@@ -521,7 +521,7 @@
       });
     }
 
-    const allResolved = recs.every(r => r && r.status === 'complete');
+    const allResolved = recs.every(r => r && r.status === 'ok');
 
     const taskOptions = [...new Set(recs.filter(Boolean).flatMap(r => [
       r.recommended_task_type && r.recommended_task_type.name,
