@@ -118,15 +118,13 @@
   }
 
   // ─── Main Flow ────────────────────────────────────────────────────────────
-  const STEPS = ['Course','Outcome','Recommendation','Prompt'];
+  const STEPS = ['Outcomes', 'Recommendations', 'Prompt'];
 
   function MainFlow({ programs, glos, user }) {
     const [step, setStep] = useState(0);
-    const [courseCtx, setCourseCtx] = useState(null);
     const [selectedProgramId, setSelectedProgramId] = useState('');
     const [outcomes, setOutcomes] = useState(['']);
     const [recommendations, setRecommendations] = useState(null);
-    const [synthesized, setSynthesized] = useState({ taskType: '', deliverable: '' });
     const [promptText, setPromptText] = useState('');
     const [saved, setSaved] = useState(false);
     const [saveMsg, setSaveMsg] = useState('');
@@ -135,62 +133,50 @@
       ? (programs.find(p => p.id === selectedProgramId) || {}).name || ''
       : '';
 
+    function reset() {
+      setStep(0); setSelectedProgramId(''); setOutcomes(['']);
+      setRecommendations(null); setPromptText(''); setSaved(false); setSaveMsg('');
+    }
+
     return (
       <div>
         <StepBar steps={STEPS} current={step} />
         <div className="mt-6">
           {step === 0 && (
-            <StepCourse
+            <StepOutcome
               programs={programs}
-              glos={glos}
               selectedProgramId={selectedProgramId}
               onSelectProgram={setSelectedProgramId}
-              onCourseSelected={(ctx) => { setCourseCtx(ctx); setStep(1); }}
+              outcomes={outcomes}
+              onOutcomesChange={setOutcomes}
+              onNext={(texts) => { setOutcomes(texts); setStep(1); }}
             />
           )}
           {step === 1 && (
-            courseCtx
-              ? <StepOutcome
-                  courseCtx={courseCtx}
-                  outcomes={outcomes}
-                  onOutcomesChange={setOutcomes}
-                  onNext={(texts) => { setOutcomes(texts); setStep(2); }}
-                  onBack={() => setStep(0)}
-                />
-              : <div className="card p-6 space-y-3">
-                  <div className="alert-warn p-3 rounded text-sm">Course context failed to load. Go back and try again.</div>
-                  <button className="px-4 py-2 text-sm border border-gray-300 rounded" onClick={() => setStep(0)}>← Back</button>
-                </div>
-          )}
-          {step === 2 && (
             <StepRecommendation
               outcomes={outcomes}
               programName={programName}
-              courseCtx={courseCtx}
               onNext={(recs, taskType, deliv) => {
                 setRecommendations(recs);
-                setSynthesized({ taskType, deliverable: deliv });
-                const c = courseCtx?.course;
-                gsr('buildPromptMulti', c?.code||'', c?.title||'', c?.description||'', programName, outcomes, recs, taskType, deliv)
-                  .then(pt => { setPromptText(pt); setStep(3); });
+                gsr('buildPromptMulti', '', '', '', programName, outcomes, recs, taskType, deliv)
+                  .then(pt => { setPromptText(pt); setStep(2); });
               }}
-              onBack={() => setStep(1)}
+              onBack={() => setStep(0)}
             />
           )}
-          {step === 3 && (
+          {step === 2 && (
             <StepPrompt
               promptText={promptText}
               onPromptChange={setPromptText}
               onSave={() => {
-                const c = courseCtx?.course;
-                gsr('savePromptRecord', c?.id||'', null, outcomes.join('\n'), recommendations?.[0]||null, promptText, '')
+                gsr('savePromptRecord', '', null, outcomes.join('\n'), recommendations?.[0]||null, promptText, '')
                   .then(() => { setSaved(true); setSaveMsg('Saved to your portfolio.'); })
                   .catch(e => setSaveMsg('Save failed: ' + (e.message||e)));
               }}
               saved={saved}
               saveMsg={saveMsg}
-              onBack={() => setStep(2)}
-              onReset={() => { setStep(0); setCourseCtx(null); setRecommendations(null); setPromptText(''); setOutcomes(['']); setSaved(false); setSaveMsg(''); }}
+              onBack={() => setStep(1)}
+              onReset={reset}
             />
           )}
         </div>
@@ -300,10 +286,8 @@
     );
   }
 
-  // ─── Step 2: Outcome Entry (multi) ───────────────────────────────────────
-  function StepOutcome({ courseCtx, outcomes, onOutcomesChange, onNext, onBack }) {
-    const { course } = courseCtx || {};
-
+  // ─── Step 1: Outcome Entry ────────────────────────────────────────────────
+  function StepOutcome({ programs, selectedProgramId, onSelectProgram, outcomes, onOutcomesChange, onNext }) {
     function update(i, val) {
       onOutcomesChange(outcomes.map((o, idx) => idx === i ? val : o));
     }
@@ -315,12 +299,18 @@
     return (
       <div className="space-y-4">
         <div className="card p-6 space-y-4">
-          <SectionHeader step={2} title="Enter learning outcomes"
+          <SectionHeader step={1} title="Enter learning outcomes"
             subtitle="Add every outcome this assessment will measure. The framework will generate a recommendation for each, then synthesize one integrated assessment." />
 
-          <div className="bg-gray-50 rounded p-3 text-sm">
-            <div className="font-semibold text-gray-800">{course?.code} — {course?.title}</div>
-            <div className="text-gray-600 text-xs mt-0.5">{course?.description}</div>
+          <div className="space-y-1">
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide">
+              Program <span className="font-normal normal-case text-gray-400">(optional — improves discipline-specific recommendations)</span>
+            </label>
+            <select className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+              value={selectedProgramId} onChange={e => onSelectProgram(e.target.value)}>
+              <option value="">— Select a program —</option>
+              {programs.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+            </select>
           </div>
 
           <div className="space-y-3">
@@ -349,7 +339,6 @@
         </div>
 
         <div className="flex gap-3">
-          <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded hover:bg-gray-50" onClick={onBack}>← Back</button>
           <button className="px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40"
             disabled={!filled.length} onClick={() => onNext(filled)}>
             Get Recommendations →
@@ -528,7 +517,7 @@
     return (
       <div className="space-y-4">
         <div className="card p-6 space-y-4">
-          <SectionHeader step={3} title="Framework Recommendations"
+          <SectionHeader step={2} title="Framework Recommendations"
             subtitle="Each outcome is analyzed individually. Resolve any clarifications, then configure the synthesized assessment." />
           <div className="space-y-3">
             {outcomes.map((o, i) => (
