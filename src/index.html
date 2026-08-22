@@ -152,7 +152,6 @@
             courseCtx
               ? <StepOutcome
                   courseCtx={courseCtx}
-                  glos={glos}
                   outcomeText={outcomeText}
                   onOutcomeChange={setOutcomeText}
                   onNext={(text, type) => { setOutcomeText(text); setSelectedOutcomeType(type); setStep(2); }}
@@ -303,104 +302,38 @@
     );
   }
 
-  // ─── Step 2: Outcome Selection ────────────────────────────────────────────
-  function StepOutcome({ courseCtx, glos, outcomeText, onOutcomeChange, onNext, onBack }) {
-    const [type, setType] = useState('');
+  // ─── Step 2: Outcome Entry ────────────────────────────────────────────────
+  function StepOutcome({ courseCtx, outcomeText, onOutcomeChange, onNext, onBack }) {
     const [text, setText] = useState(outcomeText || '');
-    const { course, clos, programsWithPlos, glos: courseGlos } = courseCtx || {};
+    const { course } = courseCtx || {};
 
-    const allPrograms = programsWithPlos || [];
-
-    function pick(t, txt) { setType(t); setText(txt); onOutcomeChange(txt); }
+    function handleChange(val) { setText(val); onOutcomeChange(val); }
 
     return (
       <div className="space-y-4">
         <div className="card p-6 space-y-4">
-          <SectionHeader step={2} title="Select a learning outcome" subtitle="Pick an existing outcome or paste your own." />
+          <SectionHeader step={2} title="Enter a learning outcome"
+            subtitle="Type or paste the outcome you want to design an assessment for." />
 
-          {/* Course context banner */}
           <div className="bg-gray-50 rounded p-3 text-sm space-y-1">
             <div className="font-semibold text-gray-800">{course?.code} — {course?.title}</div>
             <div className="text-gray-600 text-xs">{course?.description}</div>
-            <div className="flex gap-2 mt-1 flex-wrap">
-              {Object.entries(safeParseJson(course && course.modality_flags)).filter(function(e){ return e[1]; }).map(function(e){ return (
-                  <span key={e[0]} className="source-badge capitalize">{e[0]}</span>
-                )})}
-            </div>
           </div>
 
-          {/* CLOs */}
-          {clos && clos.length > 0 ? (
-            <div>
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Course Learning Outcomes (CLOs)</div>
-              <div className="space-y-2">
-                {clos.map(c => (
-                  <OutcomeRow key={c.id} label={`CLO ${c.number}`} text={c.text}
-                    source={c.proposal_number} active={type==='clo' && text===c.text}
-                    onPick={() => pick('clo', c.text)} onFlag={null} />
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div className="alert-warn p-3 rounded text-sm">
-              No CLOs found for this course. Add them below or use a PLO or custom outcome.
-            </div>
-          )}
-
-          {/* GLOs for this course */}
-          {courseGlos && courseGlos.length > 0 && (
-            <div>
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">General Education Outcomes (GLOs)</div>
-              <div className="space-y-2">
-                {courseGlos.map(g => (
-                  <OutcomeRow key={g.id} label={g.code} text={g.text}
-                    active={type==='glo' && text===g.text}
-                    onPick={() => pick('glo', g.text)} onFlag={null} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* PLOs */}
-          {allPrograms.map(({ program, plos }) => (
-            <div key={program.id}>
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                PLOs — {program.name}
-              </div>
-              <div className="space-y-2">
-                {plos.map(pl => (
-                  <OutcomeRow key={pl.id} label={`PLO ${pl.number}`} text={pl.text}
-                    active={type==='plo' && text===pl.text}
-                    onPick={() => pick('plo', pl.text)} onFlag={null} />
-                ))}
-              </div>
-            </div>
-          ))}
-
-          {/* Custom */}
-          <div>
-            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Or paste a custom outcome</div>
-            <textarea
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm resize-none"
-              rows={3}
-              placeholder="Students will be able to…"
-              value={type === 'custom' ? text : ''}
-              onChange={e => pick('custom', e.target.value)}
-            />
-          </div>
+          <textarea
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={4}
+            placeholder="Students will be able to…"
+            value={text}
+            autoFocus
+            onChange={e => handleChange(e.target.value)}
+          />
         </div>
-
-        {/* Selected outcome preview */}
-        {text && (
-          <div className="alert-info p-3 rounded text-sm">
-            <span className="font-semibold">Selected:</span> {text}
-          </div>
-        )}
 
         <div className="flex gap-3">
           <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded hover:bg-gray-50" onClick={onBack}>← Back</button>
           <button className="px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded hover:bg-blue-800 disabled:opacity-40"
-            disabled={!text.trim()} onClick={() => onNext(text.trim(), type)}>
+            disabled={!text.trim()} onClick={() => onNext(text.trim(), 'custom')}>
             Get Recommendation →
           </button>
         </div>
@@ -408,22 +341,7 @@
     );
   }
 
-  function OutcomeRow({ label, text, source, active, onPick }) {
-    return (
-      <div
-        className={`border rounded p-3 cursor-pointer transition-colors text-sm ${active ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'}`}
-        onClick={onPick}>
-        <div className="flex items-start gap-2">
-          <span className="source-badge mt-0.5 shrink-0">{label}</span>
-          <span className="text-gray-800 flex-1">{text}</span>
-          {source && <span className="source-badge shrink-0 hidden sm:inline">{source}</span>}
-          {active && <span className="text-blue-600 shrink-0">✓</span>}
-        </div>
-      </div>
-    );
-  }
-
-  // ─── Step 3: Recommendation ───────────────────────────────────────────────
+// ─── Step 3: Recommendation ───────────────────────────────────────────────
   function StepRecommendation({ outcomeText, programName, courseCtx, recommendation, onRecommendation, onNext, onBack }) {
     const [loading, setLoading] = useState(false);
     const [rec, setRec] = useState(recommendation);
